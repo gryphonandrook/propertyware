@@ -256,7 +256,7 @@ describe Propertyware::Building do
   describe 'test attribute "property_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["Apartment", "Condo", "Commercial", "Du/Fourplex", "House", "Section 8/Affordable", "Senior", "Short-term/vacation", "Student", "Townhouse", "Other"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NONE", "APARTMENT", "CONDO", "COMMERCIAL", "DU_FOUR_PLEX", "HOUSE", "SECTION_8_AFFORDABLE", "SENIOR", "SHORT_TERM_VACATION", "STUDENT", "TOWNHOUSE", "OTHER"])
       # validator.allowable_values.each do |value|
       #   expect { instance.property_type = value }.not_to raise_error
       # end

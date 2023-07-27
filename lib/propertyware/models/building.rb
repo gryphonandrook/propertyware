@@ -546,7 +546,7 @@ module Propertyware
       return false unless category_validator.valid?(@category)
       maintenance_spending_limit_time_validator = EnumAttributeValidator.new('String', ["NO_LIMIT", "MONTHLY_LIMIT", "YEARLY_LIMIT"])
       return false unless maintenance_spending_limit_time_validator.valid?(@maintenance_spending_limit_time)
-      property_type_validator = EnumAttributeValidator.new('String', ["Apartment", "Condo", "Commercial", "Du/Fourplex", "House", "Section 8/Affordable", "Senior", "Short-term/vacation", "Student", "Townhouse", "Other"])
+      property_type_validator = EnumAttributeValidator.new('String', ["NONE", "APARTMENT", "CONDO", "COMMERCIAL", "DU_FOUR_PLEX", "HOUSE", "SECTION_8_AFFORDABLE", "SENIOR", "SHORT_TERM_VACATION", "STUDENT", "TOWNHOUSE", "OTHER"])
       return false unless property_type_validator.valid?(@property_type)
       true
     end
@@ -584,7 +584,7 @@ module Propertyware
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] property_type Object to be assigned
     def property_type=(property_type)
-      validator = EnumAttributeValidator.new('String', ["Apartment", "Condo", "Commercial", "Du/Fourplex", "House", "Section 8/Affordable", "Senior", "Short-term/vacation", "Student", "Townhouse", "Other"])
+      validator = EnumAttributeValidator.new('String', ["NONE", "APARTMENT", "CONDO", "COMMERCIAL", "DU_FOUR_PLEX", "HOUSE", "SECTION_8_AFFORDABLE", "SENIOR", "SHORT_TERM_VACATION", "STUDENT", "TOWNHOUSE", "OTHER"])
       unless validator.valid?(property_type)
         fail ArgumentError, "invalid value #{ property_type.inspect } for \"property_type\", must be one of #{validator.allowable_values}."
       end

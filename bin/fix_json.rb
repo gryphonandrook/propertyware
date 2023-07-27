@@ -17,6 +17,15 @@ data['paths'].each do |_path_name, methods|
   end
 end
 
+# This enum is failing to be parsed, because the values are actually capitalized
+# They are properly capitalized in SaveBuilding#propertyType, but not in Building#propertyType
+#
+# The reason why we simply copy the data instead of capitalizing it, is because there are some
+# inconsistencies and simply capitalizing doesn't work. For example, the `propertyType` enum
+# in `SaveBuilding` has a `DU_FOUR_PLEX` value, but the `Building` enum has a `Du/Fourplex` value.
+data['components']['schemas']['Building']['properties']['propertyType']['enum'] = 
+  data['components']['schemas']['SaveBuilding']['properties']['propertyType']['enum']
+
 # The API does not include the Authorization part on their JSON, so we add it ourselves
 data['security'] = [{ "clientId": [] }, { "clientSecret": [] }, { "organizationId": [] }]
 data['components']['securitySchemes'] = {
