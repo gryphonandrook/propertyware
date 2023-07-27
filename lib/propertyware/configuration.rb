@@ -254,7 +254,7 @@ module Propertyware
           {
             type: 'api_key',
             in: 'header',
-            key: 'x-propertyware-organization-id',
+            key: 'x-propertyware-system-id',
             value: api_key_with_prefix('organizationId')
           },
       }

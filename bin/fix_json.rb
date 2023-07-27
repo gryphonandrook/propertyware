@@ -33,7 +33,7 @@ data['components']['securitySchemes'] = {
   "organizationId": {
     "type": "apiKey",
     "in": "header",
-    "name": "x-propertyware-organization-id"
+    "name": "x-propertyware-system-id"
   }
 }
 
