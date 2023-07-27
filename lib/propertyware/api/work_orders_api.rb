@@ -68,7 +68,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'WorkOrder'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.create_work_order",
@@ -142,7 +142,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Task'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.create_work_order_task",
@@ -210,7 +210,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<RESTAPIBulkSuccessResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.create_work_orders",
@@ -273,7 +273,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.delete_work_order",
@@ -342,7 +342,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.delete_work_order_task",
@@ -408,7 +408,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'WorkOrder'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.get_work_order",
@@ -477,7 +477,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Task>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.get_work_order_task",
@@ -561,7 +561,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Task>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.get_work_order_tasks",
@@ -661,7 +661,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<WorkOrder>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.get_work_orders",
@@ -741,7 +741,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Task'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"WorkOrdersApi.update_work_order_task",

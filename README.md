@@ -61,19 +61,19 @@ If you need to make requests on behalf of several Propertyware accounts, then yo
 ```ruby
 require "propertyware"
 
-# Create a configuration object
+# Create a configuration object, configuring credentials
 config = Propertyware::Configuration.new do
-  # Configure API key username: clientId
-  config.username = 'YOUR API CLIENT ID'
-
-  # Configure API key authorization: clientSecret
-  config.password = 'YOUR API CLIENT SECRET'
+  config.api_key["clientId"] = "<CLIENT_ID>"
+  config.api_key["clientSecret"] = "<CLIENT_SECRET>"
+  config.api_key["organizationId"] = "<ORGANIZATION_ID>"
 endl
 
 # Build an API client
 api_client = Propertyware::ApiClient.new(config)
-properties_api = Propertyware::PropertiesApi.new(api_client)
-properties_api.properties_get(query_params: {filters: {"LastUpdatedAtFrom" => '2020-12-15T16:30:46Z'}})
+
+# Hit their API
+buildings_api = Propertyware::BuildingsApi.new(api_client)
+buildings_api.get_buildings(query_params: {filters: {"lastModifiedDateTimeStart" => '2020-12-15T16:30:46Z'}})
 # => [<Propertyware::Property ...>]
 ```
 

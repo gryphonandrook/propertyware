@@ -68,7 +68,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'BankDeposit'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.create_bank_deposit",
@@ -136,7 +136,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<RESTAPIBulkSuccessResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.create_bill_payments",
@@ -204,7 +204,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Account'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.create_gl_account",
@@ -272,7 +272,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'OwnerContribution'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.create_owner_contribution",
@@ -340,7 +340,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'OwnerDraw'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.create_owner_draw",
@@ -403,7 +403,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.delete_bank_deposit",
@@ -466,7 +466,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.delete_gl_account",
@@ -529,7 +529,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.delete_owner_contribution",
@@ -613,7 +613,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Account>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.get_accounts",
@@ -703,7 +703,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<GLItem>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.get_general_ledger_transactions",
@@ -790,7 +790,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<OwnerContribution>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.get_owner_contributions",
@@ -871,7 +871,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<OwnerDraw>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.get_owner_draws",
@@ -945,7 +945,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Account'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.update_gl_account",
@@ -1019,7 +1019,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'OwnerDraw'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"AccountingApi.update_owner_draw",

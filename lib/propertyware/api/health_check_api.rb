@@ -57,7 +57,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"HealthCheckApi.health",

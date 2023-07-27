@@ -66,7 +66,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Inspection'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"InspectionsApi.get_inspection",
@@ -150,7 +150,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Inspection>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"InspectionsApi.get_inspections",

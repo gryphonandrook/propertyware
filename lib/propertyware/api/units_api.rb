@@ -68,7 +68,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<RESTAPIBulkSuccessResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.create_contacts_using_post4",
@@ -136,7 +136,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Unit'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.create_unit",
@@ -199,7 +199,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.delete_unit",
@@ -268,7 +268,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.delete_unit_conversation",
@@ -331,7 +331,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Unit>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.get_lease_custom_fields_using_get1",
@@ -397,7 +397,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Unit'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.get_unit",
@@ -466,7 +466,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Conversation'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.get_unit_conversation",
@@ -551,7 +551,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Conversation>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.get_unit_conversations",
@@ -644,7 +644,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Unit>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.get_units",
@@ -718,7 +718,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Unit'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"UnitsApi.update_unit",

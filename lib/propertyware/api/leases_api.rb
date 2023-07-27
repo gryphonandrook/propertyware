@@ -80,7 +80,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Comment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.add_comment_to_lease_conversation",
@@ -148,7 +148,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'JournalEntry'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_journal_entry",
@@ -216,7 +216,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Lease'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease",
@@ -284,7 +284,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ChargeTx'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease_adjustment",
@@ -352,7 +352,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ChargeTx'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease_charge",
@@ -420,7 +420,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<RESTAPIBulkSuccessResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease_charges",
@@ -494,7 +494,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Conversation'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease_conversation",
@@ -562,7 +562,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Discount'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease_discount",
@@ -630,7 +630,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Payment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease_payment",
@@ -698,7 +698,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Refund'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.create_lease_refund",
@@ -761,7 +761,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.delete_lease",
@@ -830,7 +830,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.delete_lease_conversation",
@@ -896,7 +896,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Lease'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease",
@@ -983,7 +983,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Transaction>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_adjustments",
@@ -1046,7 +1046,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Charge>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_auto_charges",
@@ -1109,7 +1109,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'AutoPayment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_auto_e_payments",
@@ -1172,7 +1172,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'AutoJournalEntry'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_auto_journal_entries",
@@ -1259,7 +1259,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<ChargeTx>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_charges",
@@ -1325,7 +1325,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Contact>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_contacts",
@@ -1394,7 +1394,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Conversation'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_conversation",
@@ -1479,7 +1479,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Conversation>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_conversations",
@@ -1542,7 +1542,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<CustomField>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_custom_fields",
@@ -1623,7 +1623,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Transaction>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_discounts",
@@ -1686,7 +1686,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Document>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_documents",
@@ -1773,7 +1773,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'JournalEntry'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_journal_entry",
@@ -1836,7 +1836,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'LateFeeRule'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_late_fee",
@@ -1899,7 +1899,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Note>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_notes",
@@ -1986,7 +1986,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Payment>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_payments",
@@ -2073,7 +2073,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Refund>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_refunds",
@@ -2136,7 +2136,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<WorkOrder>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_lease_work_orders",
@@ -2247,7 +2247,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Lease>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.get_leases",
@@ -2321,7 +2321,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Lease'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.update_lease",
@@ -2395,7 +2395,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ChargeTx'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.update_lease_adjustment",
@@ -2469,7 +2469,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ChargeTx'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.update_lease_charge",
@@ -2543,7 +2543,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Discount'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.update_lease_discount",
@@ -2617,7 +2617,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'JournalEntry'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.update_lease_journal_entry",
@@ -2691,7 +2691,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Payment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.update_lease_payment",
@@ -2765,7 +2765,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Refund'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"LeasesApi.update_lease_refund",

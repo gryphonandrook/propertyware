@@ -1,6 +1,6 @@
 # Propertyware::HealthCheckApi
 
-All URIs are relative to *http://api.propertyware.com/pw/api/rest/v1*
+All URIs are relative to *https://api.propertyware.com/pw/api/rest/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -22,6 +22,11 @@ require 'time'
 require 'propertyware'
 # setup authorization
 Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
   # Configure API key authorization: clientId
   config.api_key['clientId'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
@@ -72,7 +77,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
 
 ### HTTP request headers
 

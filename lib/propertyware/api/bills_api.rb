@@ -68,7 +68,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Bill'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.create_bill",
@@ -136,7 +136,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'BillPayment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.create_bill_payment",
@@ -204,7 +204,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<RESTAPIBulkSuccessResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.create_bill_payments_using_post1",
@@ -272,7 +272,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<RESTAPIBulkSuccessResponse>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.create_bills",
@@ -340,7 +340,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Bill'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.create_credit",
@@ -408,7 +408,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Check'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.create_vendor_check",
@@ -471,7 +471,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'ResponseEntity'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.delete_bill",
@@ -534,7 +534,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Bill'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.get_bill",
@@ -597,7 +597,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'BillPayment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.get_bill_payment",
@@ -681,7 +681,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<BillPayment>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.get_bill_payments",
@@ -780,7 +780,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Bill>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.get_bills",
@@ -864,7 +864,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Array<Check>'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.get_vendor_checks",
@@ -938,7 +938,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Bill'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.update_bill",
@@ -1012,7 +1012,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'BillPayment'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.update_bill_payment",
@@ -1086,7 +1086,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Bill'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.update_credit",
@@ -1160,7 +1160,7 @@ module Propertyware
       return_type = opts[:debug_return_type] || 'Check'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['clientId', 'clientSecret']
+      auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
 
       new_options = opts.merge(
         :operation => :"BillsApi.update_vendor_check",

@@ -148,7 +148,7 @@ module Propertyware
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
+      @scheme = 'https'
       @host = 'api.propertyware.com'
       @base_path = '/pw/api/rest/v1'
       @server_index = 0
@@ -250,6 +250,13 @@ module Propertyware
             key: 'x-propertyware-client-secret',
             value: api_key_with_prefix('clientSecret')
           },
+        'organizationId' =>
+          {
+            type: 'api_key',
+            in: 'header',
+            key: 'x-propertyware-organization-id',
+            value: api_key_with_prefix('organizationId')
+          },
       }
     end
 
@@ -257,7 +264,7 @@ module Propertyware
     def server_settings
       [
         {
-          url: "//api.propertyware.com/pw/api/rest/v1",
+          url: "https://api.propertyware.com/pw/api/rest/v1",
           description: "No description provided",
         }
       ]
