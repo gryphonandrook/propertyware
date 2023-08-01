@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    propertyware (1.0.4)
+    propertyware (1.0.5)
       faraday (>= 1.0.1, < 3.0)
       faraday-multipart
 
