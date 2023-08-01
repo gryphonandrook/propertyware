@@ -13,7 +13,7 @@ A Ruby client library for interacting with the [Propertyware API](https://app.pr
    s.add_runtime_dependency "propertyware", "~> 1.0.0"
 
    # In your Gemfile
-   gem "propertyware", github: "leadsimple/propertyware"
+   gem "propertyware"
    ```
 
 2. Get a Propertyware API client ID and secret in your Propertyware portal.
