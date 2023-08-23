@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **abbreviation** | **String** | Building abbreviation. |  |
+| **abbreviation** | **String** | Abbreviation of Building. |  |
 | **address** | [**SaveAddress**](SaveAddress.md) |  | [optional] |
 | **allocation_method** | **String** | Allocation method. | [optional] |
 | **available_date** | **Date** | Date the building is available for leasing. | [optional] |
@@ -33,7 +33,7 @@
 | **rentable** | **Boolean** | Indicates if the building is rentable. | [optional] |
 | **search_tag** | **String** | Search tag name. | [optional] |
 | **short_description** | **String** | Marketing short description. | [optional] |
-| **target_deposit** | **String** | Target deposit. | [optional] |
+| **target_deposit** | **Float** | Target deposit amount. | [optional] |
 | **target_rent** | **Float** | Market rent for the building. | [optional] |
 | **total_area** | **Float** | Building area. | [optional] |
 | **type** | **String** | Indicates Building type like Office, Industrial, Retail, Healthcare, Government, Airport, Garage/Parking, Apartment Building, Duplex / Triplex, Mobile Home / RV Community etc. |  |

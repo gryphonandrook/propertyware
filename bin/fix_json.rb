@@ -4,6 +4,13 @@ require 'json'
 file = File.read('bin/propertyware.json')
 data = JSON.parse(file)
 
+# All models have an extra `DTO` suffix, which we are removing here for simplicity sake.
+# To simplify, we are acting directly in the output string, which is not ideal, but it's simpler
+# than handling all cases using `#each` calls
+data_json = data.to_json
+data_json = data_json.gsub(/DTOs? */i, '')
+data = JSON.parse(data_json)
+
 # For some reason, the validator fails to properly parse the contact URL,
 # so we are simply removing it becase it has no effect in the final SDK anyway
 data['info']['contact'].delete('url')
@@ -49,11 +56,5 @@ data['components']['securitySchemes'] = {
 # Guarantee we automatically set HTTPS as the schema
 data['servers'][0] = { "url": "https://api.propertyware.com/pw/api/rest/v1" } unless data['servers'].first['url'].start_with?("https://")
 
-# All models have an extra `DTO` suffix, which we are removing here for simplicity sake.
-# To simplify, we are acting directly in the output string, which is not ideal, but it's simpler
-# than handling all cases using `#each` calls
-data_json = data.to_json
-data_json = data_json.gsub(/DTOs? */i, '')
-
 # Save it back to the file
-File.write('bin/propertyware.json', data_json)
+File.write('bin/propertyware.json', data.to_json)

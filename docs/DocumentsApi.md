@@ -4,9 +4,92 @@ All URIs are relative to *https://api.propertyware.com/pw/api/rest/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /docs/{documentId} | Delete a document (BETA) |
 | [**download_document**](DocumentsApi.md#download_document) | **GET** /docs/{documentId}/download | Download a document |
 | [**retrieve_all_documents**](DocumentsApi.md#retrieve_all_documents) | **GET** /docs | Retrieve all documents |
 | [**retrieve_document**](DocumentsApi.md#retrieve_document) | **GET** /docs/{documentId} | Retrieve a document |
+| [**upload_document**](DocumentsApi.md#upload_document) | **POST** /docs | Upload a document (BETA) |
+
+
+## delete_document
+
+> <ResponseEntity> delete_document(document_id)
+
+Delete a document (BETA)
+
+<p class=\"betaError\"><b>Note: </b>Write access is only available to customers who have opted in to our beta program. Please reach out to support if you'd like to be included.</p> Deletes a specific document and its associated content.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">DOCUMENTS</span> - <code>Delete</code> 
+
+### Examples
+
+```ruby
+require 'time'
+require 'propertyware'
+# setup authorization
+Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
+  # Configure API key authorization: clientId
+  config.api_key['clientId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientId'] = 'Bearer'
+
+  # Configure API key authorization: clientSecret
+  config.api_key['clientSecret'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientSecret'] = 'Bearer'
+end
+
+api_instance = Propertyware::DocumentsApi.new
+document_id = 789 # Integer | ID of the document to delete
+
+begin
+  # Delete a document (BETA)
+  result = api_instance.delete_document(document_id)
+  p result
+rescue Propertyware::ApiError => e
+  puts "Error when calling DocumentsApi->delete_document: #{e}"
+end
+```
+
+#### Using the delete_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ResponseEntity>, Integer, Hash)> delete_document_with_http_info(document_id)
+
+```ruby
+begin
+  # Delete a document (BETA)
+  data, status_code, headers = api_instance.delete_document_with_http_info(document_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ResponseEntity>
+rescue Propertyware::ApiError => e
+  puts "Error when calling DocumentsApi->delete_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_id** | **Integer** | ID of the document to delete |  |
+
+### Return type
+
+[**ResponseEntity**](ResponseEntity.md)
+
+### Authorization
+
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## download_document
@@ -129,7 +212,7 @@ opts = {
   last_modified_date_time_start: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or after the date time specified. 
   last_modified_date_time_end: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or prior to the date time specified. 
   orderby: 'orderby_example', # String | Indicates the field(s) and direction to sort the results in the response.
-  entity_id: 789 # Integer | Filters results to documents associated with a specific entity id.
+  entity_id: 789 # Integer | Filters results to documents associated with a specific entity id. entity ID is not required for “DESKTOP” and “OTHER”. Remaining entities need “entity ID”.
 }
 
 begin
@@ -169,7 +252,7 @@ end
 | **last_modified_date_time_start** | **Time** | Filters results to any item modified on or after the date time specified.  | [optional] |
 | **last_modified_date_time_end** | **Time** | Filters results to any item modified on or prior to the date time specified.  | [optional] |
 | **orderby** | **String** | Indicates the field(s) and direction to sort the results in the response. | [optional] |
-| **entity_id** | **Integer** | Filters results to documents associated with a specific entity id. | [optional] |
+| **entity_id** | **Integer** | Filters results to documents associated with a specific entity id. entity ID is not required for “DESKTOP” and “OTHER”. Remaining entities need “entity ID”. | [optional] |
 
 ### Return type
 
@@ -263,5 +346,96 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## upload_document
+
+> <Document> upload_document(entity_id, entity_type, body, opts)
+
+Upload a document (BETA)
+
+<p class=\"betaError\"><b>Note: </b>Write access is only available to customers who have opted in to our beta program. Please reach out to support if you'd like to be included.</p> Upload a document<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">DOCUMENTS</span> - <code>Write</code> 
+
+### Examples
+
+```ruby
+require 'time'
+require 'propertyware'
+# setup authorization
+Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
+  # Configure API key authorization: clientId
+  config.api_key['clientId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientId'] = 'Bearer'
+
+  # Configure API key authorization: clientSecret
+  config.api_key['clientSecret'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientSecret'] = 'Bearer'
+end
+
+api_instance = Propertyware::DocumentsApi.new
+entity_id = 789 # Integer | Unique identifier of an entity document is attached to.
+entity_type = 'entity_type_example' # String | Entity type Document is attached to (Bill, Building, Desktop, Inspection, Lease, Portfolio, Prospect, Unit, Vendor, Work Order, Tenant, Owner, Bank Deposit, Asset)
+body = File.new('/path/to/some/file') # File | 
+opts = {
+  publish_to_tenant_portal: true, # Boolean | Indicates if the document is published to the tenant portal.
+  publish_to_owner_portal: true # Boolean | Indicates if the document is published to the owner portal.
+}
+
+begin
+  # Upload a document (BETA)
+  result = api_instance.upload_document(entity_id, entity_type, body, opts)
+  p result
+rescue Propertyware::ApiError => e
+  puts "Error when calling DocumentsApi->upload_document: #{e}"
+end
+```
+
+#### Using the upload_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Document>, Integer, Hash)> upload_document_with_http_info(entity_id, entity_type, body, opts)
+
+```ruby
+begin
+  # Upload a document (BETA)
+  data, status_code, headers = api_instance.upload_document_with_http_info(entity_id, entity_type, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Document>
+rescue Propertyware::ApiError => e
+  puts "Error when calling DocumentsApi->upload_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **entity_id** | **Integer** | Unique identifier of an entity document is attached to. |  |
+| **entity_type** | **String** | Entity type Document is attached to (Bill, Building, Desktop, Inspection, Lease, Portfolio, Prospect, Unit, Vendor, Work Order, Tenant, Owner, Bank Deposit, Asset) |  |
+| **body** | **File** |  |  |
+| **publish_to_tenant_portal** | **Boolean** | Indicates if the document is published to the tenant portal. | [optional] |
+| **publish_to_owner_portal** | **Boolean** | Indicates if the document is published to the owner portal. | [optional] |
+
+### Return type
+
+[**Document**](Document.md)
+
+### Authorization
+
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+
+### HTTP request headers
+
+- **Content-Type**: application/octet-stream
 - **Accept**: application/json
 

@@ -28,7 +28,7 @@
 | **name** | **String** | Name of the property. | [optional] |
 | **neighborhood** | **String** | Property neighborhood. | [optional] |
 | **number_floors** | **Integer** | Number floors | [optional] |
-| **number_of_bathrooms** | **Integer** | Number of bathrooms in the property. | [optional] |
+| **number_of_bathrooms** | **Float** | Number of bathrooms in the property. | [optional] |
 | **number_of_bedrooms** | **Integer** | Number of bedrooms in the property. | [optional] |
 | **portfolio_id** | **Integer** | ID of the portfolio associated with this property. | [optional] |
 | **property_manager_list** | [**Array&lt;PropertyManager&gt;**](PropertyManager.md) | Property manager details. | [optional] |
@@ -37,7 +37,7 @@
 | **search_tag** | **String** | Property search tag. | [optional] |
 | **status** | **String** | Property status (occupied/vacant). | [optional] |
 | **syndicate** | **Boolean** | Property syndicate. | [optional] |
-| **target_deposit** | **String** | Target deposit. | [optional] |
+| **target_deposit** | **Float** | Target deposit. | [optional] |
 | **target_rent** | **Float** | Property target rent. | [optional] |
 | **target_rent_units** | **String** | Property target rent units. | [optional] |
 | **total_area** | **Float** | Property total area. | [optional] |

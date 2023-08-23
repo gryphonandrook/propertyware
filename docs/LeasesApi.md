@@ -25,6 +25,7 @@ All URIs are relative to *https://api.propertyware.com/pw/api/rest/v1*
 | [**get_lease_contacts**](LeasesApi.md#get_lease_contacts) | **GET** /leases/{leaseId}/contacts | Retrieve all lease contacts |
 | [**get_lease_conversation**](LeasesApi.md#get_lease_conversation) | **GET** /leases/{leaseID}/conversations/{conversationID} | Retrieve a lease conversation |
 | [**get_lease_conversations**](LeasesApi.md#get_lease_conversations) | **GET** /leases/{leaseID}/conversations | Retrieve all lease conversations |
+| [**get_lease_credit_memos**](LeasesApi.md#get_lease_credit_memos) | **GET** /leases/creditmemos | Retrieve all the credit memos |
 | [**get_lease_custom_fields**](LeasesApi.md#get_lease_custom_fields) | **GET** /leases/{leaseId}/customfields | Retrieve all lease custom fields |
 | [**get_lease_discounts**](LeasesApi.md#get_lease_discounts) | **GET** /leases/discounts | Retrieve all the lease discounts |
 | [**get_lease_documents**](LeasesApi.md#get_lease_documents) | **GET** /leases/{leaseId}/document | Retrieve all lease documents |
@@ -1806,6 +1807,107 @@ end
 ### Return type
 
 [**Array&lt;Conversation&gt;**](Conversation.md)
+
+### Authorization
+
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_lease_credit_memos
+
+> <Array<CreditMemo>> get_lease_credit_memos(opts)
+
+Retrieve all the credit memos
+
+Retrieves a list of credit memos.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">LEASES</span> - <code>Read</code> <br/><br/><b>Sortable by:</b> <code>leaseid</code>, <code>postdate</code>, <code>createddate</code>, <code>lastmodifieddatetime</code>, <code>id</code>
+
+### Examples
+
+```ruby
+require 'time'
+require 'propertyware'
+# setup authorization
+Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
+  # Configure API key authorization: clientId
+  config.api_key['clientId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientId'] = 'Bearer'
+
+  # Configure API key authorization: clientSecret
+  config.api_key['clientSecret'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientSecret'] = 'Bearer'
+end
+
+api_instance = Propertyware::LeasesApi.new
+opts = {
+  offset: 56, # Integer | `offset` indicates the position of the first record to return. The offset is zero-based and the default is 0.
+  limit: 56, # Integer | `limit` indicates the maximum number of results to be returned in the response. `limit` can range between 1 and 500 and the default is 100.
+  last_modified_date_time_start: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or after the date time specified. 
+  last_modified_date_time_end: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or prior to the date time specified. 
+  orderby: 'orderby_example', # String | Indicates the field(s) and direction to sort the results in the response.
+  post_date_start: Date.parse('2013-10-20'), # Date | Filters results to any transaction with a start date on or after the date specified.
+  post_date_end: Date.parse('2013-10-20'), # Date | Filters results to any transaction with a start date on or prior to the date specified.
+  portfolio_id: 789, # Integer | Filters results associated with a specific portfolio.
+  lease_id: 789, # Integer | Filters results with Lease ID.
+  status: 'status_example' # String | Filters results to with Lease Status.
+}
+
+begin
+  # Retrieve all the credit memos
+  result = api_instance.get_lease_credit_memos(opts)
+  p result
+rescue Propertyware::ApiError => e
+  puts "Error when calling LeasesApi->get_lease_credit_memos: #{e}"
+end
+```
+
+#### Using the get_lease_credit_memos_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<CreditMemo>>, Integer, Hash)> get_lease_credit_memos_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve all the credit memos
+  data, status_code, headers = api_instance.get_lease_credit_memos_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<CreditMemo>>
+rescue Propertyware::ApiError => e
+  puts "Error when calling LeasesApi->get_lease_credit_memos_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | &#x60;offset&#x60; indicates the position of the first record to return. The offset is zero-based and the default is 0. | [optional] |
+| **limit** | **Integer** | &#x60;limit&#x60; indicates the maximum number of results to be returned in the response. &#x60;limit&#x60; can range between 1 and 500 and the default is 100. | [optional][default to 100] |
+| **last_modified_date_time_start** | **Time** | Filters results to any item modified on or after the date time specified.  | [optional] |
+| **last_modified_date_time_end** | **Time** | Filters results to any item modified on or prior to the date time specified.  | [optional] |
+| **orderby** | **String** | Indicates the field(s) and direction to sort the results in the response. | [optional] |
+| **post_date_start** | **Date** | Filters results to any transaction with a start date on or after the date specified. | [optional] |
+| **post_date_end** | **Date** | Filters results to any transaction with a start date on or prior to the date specified. | [optional] |
+| **portfolio_id** | **Integer** | Filters results associated with a specific portfolio. | [optional] |
+| **lease_id** | **Integer** | Filters results with Lease ID. | [optional] |
+| **status** | **String** | Filters results to with Lease Status. | [optional] |
+
+### Return type
+
+[**Array&lt;CreditMemo&gt;**](CreditMemo.md)
 
 ### Authorization
 

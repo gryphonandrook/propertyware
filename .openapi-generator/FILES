@@ -34,9 +34,12 @@ docs/Contact.md
 docs/ContactsApi.md
 docs/Conversation.md
 docs/CreditCardAccount.md
+docs/CreditMemo.md
 docs/CurrentAsset.md
 docs/CurrentLiability.md
 docs/CustomField.md
+docs/CustomFieldDefinition.md
+docs/CustomFieldDefinitionsApi.md
 docs/Discount.md
 docs/Document.md
 docs/DocumentsApi.md
@@ -131,6 +134,7 @@ lib/propertyware/api/accounting_api.rb
 lib/propertyware/api/bills_api.rb
 lib/propertyware/api/buildings_api.rb
 lib/propertyware/api/contacts_api.rb
+lib/propertyware/api/custom_field_definitions_api.rb
 lib/propertyware/api/documents_api.rb
 lib/propertyware/api/health_check_api.rb
 lib/propertyware/api/inspections_api.rb
@@ -167,9 +171,11 @@ lib/propertyware/models/comment.rb
 lib/propertyware/models/contact.rb
 lib/propertyware/models/conversation.rb
 lib/propertyware/models/credit_card_account.rb
+lib/propertyware/models/credit_memo.rb
 lib/propertyware/models/current_asset.rb
 lib/propertyware/models/current_liability.rb
 lib/propertyware/models/custom_field.rb
+lib/propertyware/models/custom_field_definition.rb
 lib/propertyware/models/discount.rb
 lib/propertyware/models/document.rb
 lib/propertyware/models/entry.rb
@@ -255,6 +261,7 @@ spec/api/accounting_api_spec.rb
 spec/api/bills_api_spec.rb
 spec/api/buildings_api_spec.rb
 spec/api/contacts_api_spec.rb
+spec/api/custom_field_definitions_api_spec.rb
 spec/api/documents_api_spec.rb
 spec/api/health_check_api_spec.rb
 spec/api/inspections_api_spec.rb
@@ -290,8 +297,10 @@ spec/models/comment_spec.rb
 spec/models/contact_spec.rb
 spec/models/conversation_spec.rb
 spec/models/credit_card_account_spec.rb
+spec/models/credit_memo_spec.rb
 spec/models/current_asset_spec.rb
 spec/models/current_liability_spec.rb
+spec/models/custom_field_definition_spec.rb
 spec/models/custom_field_spec.rb
 spec/models/discount_spec.rb
 spec/models/document_spec.rb
