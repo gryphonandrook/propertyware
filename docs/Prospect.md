@@ -9,6 +9,7 @@
 | **building_id** | **Integer** | Id of the building associated with the prospect. | [optional] |
 | **city_desired** | **String** | Desired city. | [optional] |
 | **comments** | **String** | Indicates if the prospect has any comments. | [optional] |
+| **contacts** | [**Array&lt;ProspectContact&gt;**](ProspectContact.md) | Contacts of the prospect | [optional] |
 | **created_by** | **String** | User who created the record. | [optional] |
 | **created_date_time** | **Time** | Date and time the record was created. (Timezone: UTC) | [optional] |
 | **current_home_type** | **String** | Current home type. | [optional] |
@@ -51,6 +52,7 @@
 | **type** | **String** | Prospect type. | [optional] |
 | **type_of_inquiry** | **String** | Type of inquiry made by the prospect. | [optional] |
 | **unit_desired** | **String** | Desired unit. | [optional] |
+| **unit_id** | **Integer** | Id of the unit associated with the prospect. | [optional] |
 | **unit_type_desired** | **String** | Desired unit type. | [optional] |
 | **zip_desired** | **String** | Desired zip code. | [optional] |
 
@@ -65,6 +67,7 @@ instance = Propertyware::Prospect.new(
   building_id: null,
   city_desired: null,
   comments: null,
+  contacts: null,
   created_by: null,
   created_date_time: null,
   current_home_type: null,
@@ -107,6 +110,7 @@ instance = Propertyware::Prospect.new(
   type: null,
   type_of_inquiry: null,
   unit_desired: null,
+  unit_id: null,
   unit_type_desired: null,
   zip_desired: null
 )

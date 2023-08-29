@@ -48,7 +48,7 @@ Propertyware.configure do |config|
 end
 
 api_instance = Propertyware::WorkOrdersApi.new
-save_work_order = Propertyware::SaveWorkOrder.new # SaveWorkOrder | saveWorkOrder
+save_work_order = Propertyware::SaveWorkOrder.new({building_id: 3.56}) # SaveWorkOrder | saveWorkOrder
 
 begin
   # Create a work order (BETA)
@@ -212,7 +212,7 @@ Propertyware.configure do |config|
 end
 
 api_instance = Propertyware::WorkOrdersApi.new
-save_work_order = [Propertyware::SaveWorkOrder.new] # Array<SaveWorkOrder> | saveWorkOrder
+save_work_order = [Propertyware::SaveWorkOrder.new({building_id: 3.56})] # Array<SaveWorkOrder> | saveWorkOrder
 
 begin
   # Create work orders in bulk (BETA)

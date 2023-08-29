@@ -16,6 +16,7 @@ All URIs are relative to *https://api.propertyware.com/pw/api/rest/v1*
 | [**create_lease_refund**](LeasesApi.md#create_lease_refund) | **POST** /leases/refunds | Create a lease refund (BETA) |
 | [**delete_lease**](LeasesApi.md#delete_lease) | **DELETE** /leases/{leaseID} | Delete a lease (BETA) |
 | [**delete_lease_conversation**](LeasesApi.md#delete_lease_conversation) | **DELETE** /leases/{leaseID}/conversations/{conversationID} | Delete a lease conversation (BETA) |
+| [**get_all_lease_statuses**](LeasesApi.md#get_all_lease_statuses) | **GET** /leases/statuses | Retrieve all lease statuses (BETA) |
 | [**get_lease**](LeasesApi.md#get_lease) | **GET** /leases/{leaseId} | Retrieve a lease |
 | [**get_lease_adjustments**](LeasesApi.md#get_lease_adjustments) | **GET** /leases/adjustments | Retrieve all the adjustments |
 | [**get_lease_auto_charges**](LeasesApi.md#get_lease_auto_charges) | **GET** /leases/{leaseId}/autocharges | Retrieve all lease auto charges |
@@ -1014,6 +1015,84 @@ end
 ### Return type
 
 [**ResponseEntity**](ResponseEntity.md)
+
+### Authorization
+
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_all_lease_statuses
+
+> <Array<LeaseStatus>> get_all_lease_statuses
+
+Retrieve all lease statuses (BETA)
+
+<p class=\"betaWarning\"><b>Note: </b>This operation is still in beta and might be subject to breaking changes. Production integrations should be avoided at this stage.</p> Retrieves a list of all lease statuses<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">LEASES</span> - <code>Read</code> 
+
+### Examples
+
+```ruby
+require 'time'
+require 'propertyware'
+# setup authorization
+Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
+  # Configure API key authorization: clientId
+  config.api_key['clientId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientId'] = 'Bearer'
+
+  # Configure API key authorization: clientSecret
+  config.api_key['clientSecret'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientSecret'] = 'Bearer'
+end
+
+api_instance = Propertyware::LeasesApi.new
+
+begin
+  # Retrieve all lease statuses (BETA)
+  result = api_instance.get_all_lease_statuses
+  p result
+rescue Propertyware::ApiError => e
+  puts "Error when calling LeasesApi->get_all_lease_statuses: #{e}"
+end
+```
+
+#### Using the get_all_lease_statuses_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<LeaseStatus>>, Integer, Hash)> get_all_lease_statuses_with_http_info
+
+```ruby
+begin
+  # Retrieve all lease statuses (BETA)
+  data, status_code, headers = api_instance.get_all_lease_statuses_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<LeaseStatus>>
+rescue Propertyware::ApiError => e
+  puts "Error when calling LeasesApi->get_all_lease_statuses_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;LeaseStatus&gt;**](LeaseStatus.md)
 
 ### Authorization
 

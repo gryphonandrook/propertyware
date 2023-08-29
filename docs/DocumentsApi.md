@@ -8,6 +8,7 @@ All URIs are relative to *https://api.propertyware.com/pw/api/rest/v1*
 | [**download_document**](DocumentsApi.md#download_document) | **GET** /docs/{documentId}/download | Download a document |
 | [**retrieve_all_documents**](DocumentsApi.md#retrieve_all_documents) | **GET** /docs | Retrieve all documents |
 | [**retrieve_document**](DocumentsApi.md#retrieve_document) | **GET** /docs/{documentId} | Retrieve a document |
+| [**update_document**](DocumentsApi.md#update_document) | **PUT** /docs/{documentId} | Update a document (BETA) |
 | [**upload_document**](DocumentsApi.md#upload_document) | **POST** /docs | Upload a document (BETA) |
 
 
@@ -212,7 +213,7 @@ opts = {
   last_modified_date_time_start: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or after the date time specified. 
   last_modified_date_time_end: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or prior to the date time specified. 
   orderby: 'orderby_example', # String | Indicates the field(s) and direction to sort the results in the response.
-  entity_id: 789 # Integer | Filters results to documents associated with a specific entity id. entity ID is not required for “DESKTOP” and “OTHER”. Remaining entities need “entity ID”.
+  entity_id: 789 # Integer | Filters results to documents associated with a specific entity id. entity ID is not required for â€œDESKTOPâ€  and â€œOTHERâ€ . Remaining entities need â€œentity IDâ€ .
 }
 
 begin
@@ -252,7 +253,7 @@ end
 | **last_modified_date_time_start** | **Time** | Filters results to any item modified on or after the date time specified.  | [optional] |
 | **last_modified_date_time_end** | **Time** | Filters results to any item modified on or prior to the date time specified.  | [optional] |
 | **orderby** | **String** | Indicates the field(s) and direction to sort the results in the response. | [optional] |
-| **entity_id** | **Integer** | Filters results to documents associated with a specific entity id. entity ID is not required for “DESKTOP” and “OTHER”. Remaining entities need “entity ID”. | [optional] |
+| **entity_id** | **Integer** | Filters results to documents associated with a specific entity id. entity ID is not required for â€œDESKTOPâ€  and â€œOTHERâ€ . Remaining entities need â€œentity IDâ€ . | [optional] |
 
 ### Return type
 
@@ -346,6 +347,89 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_document
+
+> <Document> update_document(document_id, update_document)
+
+Update a document (BETA)
+
+<p class=\"betaError\"><b>Note: </b>Write access is only available to customers who have opted in to our beta program. Please reach out to support if you'd like to be included.</p> Updates the metadata of a specific document.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">DOCUMENTS</span> - <code>Write</code> 
+
+### Examples
+
+```ruby
+require 'time'
+require 'propertyware'
+# setup authorization
+Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
+  # Configure API key authorization: clientId
+  config.api_key['clientId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientId'] = 'Bearer'
+
+  # Configure API key authorization: clientSecret
+  config.api_key['clientSecret'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientSecret'] = 'Bearer'
+end
+
+api_instance = Propertyware::DocumentsApi.new
+document_id = 789 # Integer | ID of the document to be updated
+update_document = Propertyware::UpdateDocument.new({file_name: 'file_name_example'}) # UpdateDocument | updateDocument
+
+begin
+  # Update a document (BETA)
+  result = api_instance.update_document(document_id, update_document)
+  p result
+rescue Propertyware::ApiError => e
+  puts "Error when calling DocumentsApi->update_document: #{e}"
+end
+```
+
+#### Using the update_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Document>, Integer, Hash)> update_document_with_http_info(document_id, update_document)
+
+```ruby
+begin
+  # Update a document (BETA)
+  data, status_code, headers = api_instance.update_document_with_http_info(document_id, update_document)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Document>
+rescue Propertyware::ApiError => e
+  puts "Error when calling DocumentsApi->update_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_id** | **Integer** | ID of the document to be updated |  |
+| **update_document** | [**UpdateDocument**](UpdateDocument.md) | updateDocument |  |
+
+### Return type
+
+[**Document**](Document.md)
+
+### Authorization
+
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

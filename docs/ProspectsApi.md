@@ -12,6 +12,7 @@ All URIs are relative to *https://api.propertyware.com/pw/api/rest/v1*
 | [**get_prospect_campaign**](ProspectsApi.md#get_prospect_campaign) | **GET** /prospects/{prospectID}/campaign | Retrieve prospect campaign |
 | [**get_prospect_conversation**](ProspectsApi.md#get_prospect_conversation) | **GET** /prospects/{prospectID}/conversations/{conversationID} | Retrieve a prospect conversation |
 | [**get_prospect_conversations**](ProspectsApi.md#get_prospect_conversations) | **GET** /prospects/{prospectID}/conversations | Retrieve all prospect conversations |
+| [**get_prospect_statuses**](ProspectsApi.md#get_prospect_statuses) | **GET** /prospects/statuses | Retrieve all prospect statuses (BETA) |
 | [**get_prospects**](ProspectsApi.md#get_prospects) | **GET** /prospects | Retrieve all prospects |
 
 
@@ -676,6 +677,84 @@ end
 ### Return type
 
 [**Array&lt;Conversation&gt;**](Conversation.md)
+
+### Authorization
+
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_prospect_statuses
+
+> <Array<ProspectStatus>> get_prospect_statuses
+
+Retrieve all prospect statuses (BETA)
+
+<p class=\"betaWarning\"><b>Note: </b>This operation is still in beta and might be subject to breaking changes. Production integrations should be avoided at this stage.</p> Retrieves a list of all prospect statuses<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">PROSPECTS</span> - <code>Read</code> 
+
+### Examples
+
+```ruby
+require 'time'
+require 'propertyware'
+# setup authorization
+Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
+  # Configure API key authorization: clientId
+  config.api_key['clientId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientId'] = 'Bearer'
+
+  # Configure API key authorization: clientSecret
+  config.api_key['clientSecret'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientSecret'] = 'Bearer'
+end
+
+api_instance = Propertyware::ProspectsApi.new
+
+begin
+  # Retrieve all prospect statuses (BETA)
+  result = api_instance.get_prospect_statuses
+  p result
+rescue Propertyware::ApiError => e
+  puts "Error when calling ProspectsApi->get_prospect_statuses: #{e}"
+end
+```
+
+#### Using the get_prospect_statuses_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<ProspectStatus>>, Integer, Hash)> get_prospect_statuses_with_http_info
+
+```ruby
+begin
+  # Retrieve all prospect statuses (BETA)
+  data, status_code, headers = api_instance.get_prospect_statuses_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<ProspectStatus>>
+rescue Propertyware::ApiError => e
+  puts "Error when calling ProspectsApi->get_prospect_statuses_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;ProspectStatus&gt;**](ProspectStatus.md)
 
 ### Authorization
 

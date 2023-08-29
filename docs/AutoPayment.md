@@ -12,6 +12,7 @@
 | **end_date** | **Date** | End date. | [optional] |
 | **fee_amount** | **Float** | Fee amount. | [optional] |
 | **frequency** | **String** | Payment frequency. | [optional] |
+| **gl_account_id** | **Integer** | Payment general ledger account ID. | [optional] |
 | **id** | **Integer** | Unique identifier. | [optional] |
 | **last_modified_by** | **String** | User who last modified the record. | [optional] |
 | **last_modified_date_time** | **Time** | Date and time the record was last modified. (Timezone: UTC) | [optional] |
@@ -32,6 +33,7 @@ instance = Propertyware::AutoPayment.new(
   end_date: null,
   fee_amount: null,
   frequency: null,
+  gl_account_id: null,
   id: null,
   last_modified_by: null,
   last_modified_date_time: null,

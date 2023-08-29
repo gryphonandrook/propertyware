@@ -5,6 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **age** | **Integer** | Number of days that have passed since the work order was created. | [optional] |
+| **approved** | **Boolean** | Indicates if work order is approved. | [optional] |
+| **approved_date** | **Date** | Work order approved Date. | [optional] |
 | **assigned_vendors** | [**Array&lt;BasicVendor&gt;**](BasicVendor.md) | List of vendors attached to the work order. | [optional] |
 | **authorize_enter** | **String** | Indicates if the tenant has granted your management staff access to enter his or her buildings and/or units. | [optional] |
 | **building_id** | **Integer** | Id of the building associated with this work order. | [optional] |
@@ -15,6 +17,7 @@
 | **created_by** | **String** | User who created the record. | [optional] |
 | **created_date_time** | **Time** | Date and time the record was created. (Timezone: UTC) | [optional] |
 | **custom_fields** | [**Array&lt;CustomField&gt;**](CustomField.md) | Custom fields. | [optional] |
+| **date_to_enter** | **Time** | Authorized date to enter unit. | [optional] |
 | **description** | **String** | This is a detailed description of the problem. | [optional] |
 | **hour_estimate** | **Float** | Expected number of hours to complete the work order. | [optional] |
 | **id** | **Integer** | Unique identifier. | [optional] |
@@ -30,6 +33,7 @@
 | **requested_by** | **String** | This identifies the person that reported the problem, typically the tenant or owner associated with the buildings or units. | [optional] |
 | **required_materials** | **String** | List of materials required to complete the work order. | [optional] |
 | **scheduled_end_date** | **Date** | Date on which the work is scheduled to be completed. | [optional] |
+| **search_tag** | **String** | Search tag name. | [optional] |
 | **source** | **String** | This identifies how the problem was reported, such as telephone, in person, email, etc. | [optional] |
 | **specific_location** | **String** | This describes the location in the buildings or units where the work is needed. | [optional] |
 | **start_date** | **Date** | Date on which the work was started. | [optional] |
@@ -43,6 +47,8 @@ require 'propertyware'
 
 instance = Propertyware::WorkOrder.new(
   age: null,
+  approved: false,
+  approved_date: null,
   assigned_vendors: null,
   authorize_enter: null,
   building_id: null,
@@ -53,6 +59,7 @@ instance = Propertyware::WorkOrder.new(
   created_by: null,
   created_date_time: null,
   custom_fields: null,
+  date_to_enter: null,
   description: null,
   hour_estimate: null,
   id: null,
@@ -68,6 +75,7 @@ instance = Propertyware::WorkOrder.new(
   requested_by: null,
   required_materials: null,
   scheduled_end_date: null,
+  search_tag: null,
   source: null,
   specific_location: null,
   start_date: null,

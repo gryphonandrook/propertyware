@@ -17,7 +17,7 @@
 | **home_phone** | **String** | Home Phone. | [optional] |
 | **job_title** | **String** | Professional title or position for the contact. | [optional] |
 | **last_name** | **String** | Last Name. |  |
-| **middle_name** | **String** | First Name. | [optional] |
+| **middle_name** | **String** | Middle Name. | [optional] |
 | **mobile_phone** | **String** | Mobile Phone. | [optional] |
 | **name_on_check** | **String** | Name On Check. | [optional] |
 | **named_on_lease** | **Boolean** | Is Named On Lease. | [optional] |
