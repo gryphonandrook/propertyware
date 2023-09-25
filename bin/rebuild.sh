@@ -29,3 +29,6 @@ cp bin/CUSTOMIZATIONS.md CUSTOMIZATIONS.md
 rm .travis.yml
 rm .gitlab-ci.yml
 rm git_push.sh
+
+# Make sure everything is properly installed
+bundle install
