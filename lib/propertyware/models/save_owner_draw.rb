@@ -22,22 +22,22 @@ module Propertyware
     # Comments.
     attr_accessor :comments
 
-    # Owner Contact ID.
+    # Id of the contact associated with this owner draw.
     attr_accessor :contact_id
 
     # Post Date.
     attr_accessor :date
 
-    # Bank Account ID to Pay From.
+    # Id of the bank account where the payment will be made from.
     attr_accessor :destination_account_id
 
-    # GL Account id.
+    # Id of the general ledger account associated with this owner draw.
     attr_accessor :gl_account_id
 
-    # Portfolio ID.
+    # Id of the portfolio associated with this owner draw.
     attr_accessor :portfolio_id
 
-    # Check no required when payment method is Hand written check .
+    # Check no required when payment method is Hand written check (i.e toBePrinted = false).
     attr_accessor :ref_no
 
     # Indicates if Check is to be printed.

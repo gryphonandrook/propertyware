@@ -3087,6 +3087,57 @@
         }
       }
     },
+    "/contacts/categories": {
+      "get": {
+        "tags": ["Contacts"],
+        "summary": "Retrieve all contact categories",
+        "description": "Retrieves a list of contact categories.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">CONTACTS</span> - <code>Read</code>\n",
+        "operationId": "getContactCategories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Total-Count": {
+                "description": "The total resultset count",
+                "schema": { "type": "integer", "format": "int64" }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/ContactCategory" }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unable to process the request due to malformed request syntax or invalid parameters.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          },
+          "401": {
+            "description": "The API key couldn't be authorized.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          },
+          "403": {
+            "description": "The supplied credentials don't have permissions to access the resources.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
     "/contacts/{contactID}": {
       "get": {
         "tags": ["Contacts"],
@@ -3603,7 +3654,7 @@
           {
             "name": "entityId",
             "in": "query",
-            "description": "Filters results to documents associated with a specific entity id. entity ID is not required for â€œDESKTOPâ€  and â€œOTHERâ€ . Remaining entities need â€œentity IDâ€ .",
+            "description": "Filters results to documents associated with a specific entity id. entity ID is not required for DESKTOP and OTHER. Remaining entities need entity ID.",
             "required": false,
             "schema": { "type": "integer", "format": "int64" }
           }
@@ -3682,7 +3733,7 @@
           {
             "name": "entityType",
             "in": "query",
-            "description": "Entity type Document is attached to (Bill, Building, Desktop, Inspection, Lease, Portfolio, Prospect, Unit, Vendor, Work Order, Tenant, Owner, Bank Deposit, Asset)",
+            "description": "Entity type Document is attached to (Asset, Bill, Bank Deposit, Building, Desktop, Lease, Owner, Portfolio, Prospect, Prospect Contact, Tenant, Unit, Vendor, Check, Credit, Service Agreement, Journal Entry, Work Order)",
             "required": true,
             "schema": { "type": "string" }
           }
@@ -4424,7 +4475,7 @@
       "get": {
         "tags": ["Leases"],
         "summary": "Retrieve all the adjustments",
-        "description": "Retrieves a list of adjustments.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">GL ACCOUNTS</span> - <code>Read</code>\n<br/><br/><b>Sortable by:</b> <code>leaseid</code>, <code>postdate</code>, <code>id</code>",
+        "description": "Retrieves a list of adjustments.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">LEASES</span> - <code>Read</code>\n<br/><br/><b>Sortable by:</b> <code>leaseid</code>, <code>postdate</code>, <code>id</code>",
         "operationId": "getLeaseAdjustments",
         "parameters": [
           {
@@ -4511,7 +4562,7 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/Transaction" }
+                  "items": { "$ref": "#/components/schemas/Adjustment" }
                 }
               }
             }
@@ -4553,7 +4604,7 @@
             "description": "Created",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ChargeTx" }
+                "schema": { "$ref": "#/components/schemas/Adjustment" }
               }
             }
           },
@@ -4605,7 +4656,7 @@
             "description": "OK",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/ChargeTx" }
+                "schema": { "$ref": "#/components/schemas/Adjustment" }
               }
             }
           },
@@ -5113,7 +5164,7 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/Transaction" }
+                  "items": { "$ref": "#/components/schemas/Discount" }
                 }
               }
             }
@@ -10480,7 +10531,7 @@
             "format": "date-time",
             "description": "Date and time the record was last modified. (Timezone: UTC)"
           },
-          "name": { "type": "string", "description": "Name." },
+          "name": { "type": "string", "description": "Bank deposit name." },
           "status": { "type": "string", "description": "Status." }
         },
         "description": "Bank Deposit"
@@ -10700,7 +10751,7 @@
           "leaseID": {
             "type": "integer",
             "format": "int64",
-            "description": "Lease id."
+            "description": "Id of the lease associated with this discount."
           },
           "refNo": { "type": "string", "description": "Ref No." }
         },
@@ -10961,6 +11012,16 @@
             "format": "date",
             "description": "Date when the accounting period for the portfolio will close."
           },
+          "defaultBankAccountID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Portfolio Default Bank Account ID"
+          },
+          "defaultSecdepAccountID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Portfolio Default Security Deposit Bank Account ID"
+          },
           "doNotPayOwnerDraw": {
             "type": "boolean",
             "example": false,
@@ -10981,6 +11042,11 @@
             "type": "array",
             "description": "Portfolio owner Ids",
             "items": { "type": "integer", "format": "int64" }
+          },
+          "ownerStatementReportID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Portfolio Owner Statement Report ID"
           },
           "owners": {
             "type": "array",
@@ -11955,17 +12021,66 @@
         },
         "description": "Work Order"
       },
+      "Adjustment": {
+        "type": "object",
+        "required": ["amount", "date"],
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "description": "Amount."
+          },
+          "comments": { "type": "string", "description": "Comments." },
+          "createdBy": {
+            "type": "string",
+            "description": "User who created the record."
+          },
+          "createdDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time the record was created. (Timezone: UTC)"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Post date."
+          },
+          "glAccountID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the general ledger account associated with this charge."
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Unique identifier."
+          },
+          "lastModifiedBy": {
+            "type": "string",
+            "description": "User who last modified the record."
+          },
+          "lastModifiedDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time the record was last modified. (Timezone: UTC)"
+          },
+          "leaseID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the lease associated with this charge."
+          },
+          "portfolioID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the portfolio associated with this charge."
+          },
+          "refNo": { "type": "string", "description": "Reference number." }
+        },
+        "description": "Adjustment"
+      },
       "Refund": {
         "type": "object",
-        "required": [
-          "amount",
-          "date",
-          "destinationAccountID",
-          "glAccountID",
-          "leaseID",
-          "payeePayer",
-          "toBePrinted"
-        ],
+        "required": ["amount", "date"],
         "properties": {
           "amount": {
             "type": "number",
@@ -11989,12 +12104,12 @@
           "destinationAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Id of the bank account to send the refund to."
+            "description": "Id of the bank account to send the refund from."
           },
           "glAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Id of the general ledger associated with the refund."
+            "description": "Id of the general ledger account associated with the refund."
           },
           "id": {
             "type": "integer",
@@ -12148,7 +12263,7 @@
           "frequency": {
             "type": "string",
             "description": "Frequency.",
-            "enum": ["WEEKLY", "MONTHLY", "QUARTERLY", "SEMIANNUAL", "YEARLY"]
+            "enum": ["WEEKLY", "MONTHLY", "YEARLY", "MANUALLY"]
           },
           "id": {
             "type": "integer",
@@ -12331,7 +12446,14 @@
           "frequency": {
             "type": "string",
             "description": "Frequency of the auto charge.",
-            "enum": ["WEEKLY", "MONTHLY", "QUARTERLY", "SEMIANNUAL", "YEARLY"]
+            "enum": [
+              "WEEKLY",
+              "MONTHLY",
+              "QUARTERLY",
+              "SEMIANUUAL",
+              "ANUUAL",
+              "ANUUAL_ACCRUAL"
+            ]
           },
           "glAccountID": {
             "type": "integer",
@@ -12763,7 +12885,7 @@
             "description": "Indicates if the account balance should be transferred to retained earnings."
           }
         },
-        "description": "Account"
+        "description": "General Ledger Account"
       },
       "SaveWorkOrder": {
         "type": "object",
@@ -12918,7 +13040,7 @@
           "contactID": {
             "type": "integer",
             "format": "int64",
-            "description": "Owner Contact ID."
+            "description": "Id of the contact associated with this owner draw."
           },
           "date": {
             "type": "string",
@@ -12928,21 +13050,21 @@
           "destinationAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Bank Account ID to Pay From."
+            "description": "Id of the bank account where the payment will be made from."
           },
           "glAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "GL Account id."
+            "description": "Id of the general ledger account associated with this owner draw."
           },
           "portfolioID": {
             "type": "integer",
             "format": "int64",
-            "description": "Portfolio ID."
+            "description": "Id of the portfolio associated with this owner draw."
           },
           "refNo": {
             "type": "string",
-            "description": "Check no required when payment method is Hand written check ."
+            "description": "Check no required when payment method is Hand written check (i.e toBePrinted = false)."
           },
           "toBePrinted": {
             "type": "boolean",
@@ -12954,15 +13076,7 @@
       },
       "OwnerContribution": {
         "type": "object",
-        "required": [
-          "amount",
-          "contactID",
-          "date",
-          "destinationAccountID",
-          "glAccountID",
-          "paymentType",
-          "portfolioID"
-        ],
+        "required": ["amount", "date"],
         "properties": {
           "amount": {
             "type": "number",
@@ -13830,6 +13944,11 @@
             "description": "Id of the user who last modified the portfolio information."
           },
           "name": { "type": "string", "description": "Portfolio name." },
+          "ownerStatementReportID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Portfolio Owner Statement Report ID"
+          },
           "owners": {
             "type": "array",
             "description": "List of portfolio owners.",
@@ -14188,9 +14307,7 @@
           "date",
           "destinationAccountID",
           "glAccountID",
-          "leaseID",
-          "toBePrinted",
-          "toPrimaryTenant"
+          "leaseID"
         ],
         "properties": {
           "amount": {
@@ -14207,31 +14324,31 @@
           "destinationAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Bank GL Account to pay from."
+            "description": "Id of the bank account to send the refund from."
           },
           "glAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Refund GL Account."
+            "description": "Id of the general ledger account associated with the refund."
           },
           "leaseID": {
             "type": "integer",
             "format": "int64",
-            "description": "Lease id to apply payment."
+            "description": "Id of the lease associated with the refund."
           },
-          "refNo": { "type": "string", "description": "Payment Ref No." },
+          "refNo": { "type": "string", "description": "Reference number." },
           "toBePrinted": {
             "type": "boolean",
             "example": false,
-            "description": "Bank GL Account to pay from."
+            "description": "Indicates if the check is to be printed."
           },
           "toPrimaryTenant": {
             "type": "boolean",
             "example": false,
-            "description": "Bank GL Account to pay from."
+            "description": "Indicates if refund is for primary contact only"
           }
         },
-        "description": "Bank Deposit for Request"
+        "description": "Refund for Request"
       },
       "ProspectStatus": {
         "type": "object",
@@ -14682,113 +14799,6 @@
         },
         "description": "Bank for Request"
       },
-      "Transaction": {
-        "type": "object",
-        "properties": {
-          "amount": {
-            "type": "number",
-            "format": "double",
-            "description": "Transaction amount."
-          },
-          "comments": { "type": "string", "description": "Comments." },
-          "contactID": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Id of the contact associated with this transaction."
-          },
-          "createdBy": {
-            "type": "string",
-            "description": "User who created the record."
-          },
-          "createdDateTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Date and time the record was created. (Timezone: UTC)"
-          },
-          "date": {
-            "type": "string",
-            "format": "date",
-            "description": "Transaction date."
-          },
-          "depositDate": {
-            "type": "string",
-            "format": "date",
-            "description": "Transaction deposit date."
-          },
-          "destinationAccountID": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Id of the bank account associated with this transaction."
-          },
-          "glAccountID": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Id of the general ledger account associated with this transaction."
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Unique identifier."
-          },
-          "lastModifiedBy": {
-            "type": "string",
-            "description": "User who last modified the record."
-          },
-          "lastModifiedDateTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Date and time the record was last modified. (Timezone: UTC)"
-          },
-          "leaseID": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Id of the lease associated with this transaction."
-          },
-          "payeePayer": {
-            "type": "string",
-            "description": "Name of the payee or payer."
-          },
-          "paymentMethod": {
-            "type": "string",
-            "description": "Payment method."
-          },
-          "paymentType": {
-            "type": "string",
-            "description": "Payment type.",
-            "enum": [
-              "CHECK",
-              "CHECK21",
-              "CASHIERS_CHECK",
-              "CREDIT_CARD",
-              "CASH",
-              "MONEY_ORDER",
-              "OTHER",
-              "CLICKPAY",
-              "SECTION8",
-              "EPAY",
-              "ECHECK",
-              "NACHA",
-              "RENTMONEY",
-              "PUBLIC_ASSISTANCE"
-            ]
-          },
-          "portfolioID": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Id of the portfolio associated with this transaction."
-          },
-          "refNo": {
-            "type": "string",
-            "description": "Transaction reference number."
-          },
-          "toBePrinted": {
-            "type": "boolean",
-            "example": false,
-            "description": "Indicates if a check should be printed for this transaction."
-          }
-        },
-        "description": "Transaction"
-      },
       "ManagementSettings": {
         "type": "object",
         "properties": {
@@ -14837,9 +14847,9 @@
           "leaseID": {
             "type": "integer",
             "format": "int64",
-            "description": "Lease id."
+            "description": "Id of the lease associated with the Adjustment."
           },
-          "refNo": { "type": "string", "description": "Ref No." }
+          "refNo": { "type": "string", "description": "Reference number." }
         },
         "description": "Adjustment for Request"
       },
@@ -14930,6 +14940,10 @@
             "type": "string",
             "format": "date",
             "description": "Date of Birth."
+          },
+          "category": {
+            "type": "string",
+            "description": "Indicate contact category. Send empty \"\" value if contact is Uncategorized"
           },
           "comments": { "type": "string", "description": "Description." },
           "company": {
@@ -15148,6 +15162,18 @@
         },
         "description": "BillSplit"
       },
+      "ContactCategory": {
+        "type": "object",
+        "properties": {
+          "categoryName": { "type": "string", "description": "Category name." },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Unique identifier."
+          }
+        },
+        "description": "ContactCategory"
+      },
       "CheckSplit": {
         "type": "object",
         "required": ["portfolioID"],
@@ -15194,6 +15220,11 @@
             "format": "int64",
             "description": "Id of the building associated with this inspection."
           },
+          "closedDateAndTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time the inspection closed (customer time zone)."
+          },
           "comment": {
             "type": "string",
             "description": "Inspection comments."
@@ -15222,6 +15253,11 @@
             "description": "List of inspection areas.",
             "items": { "$ref": "#/components/schemas/InspectionArea" }
           },
+          "inspectorID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Inspector ID"
+          },
           "lastModifiedBy": {
             "type": "string",
             "description": "User who last modified the record."
@@ -15230,6 +15266,15 @@
             "type": "string",
             "format": "date-time",
             "description": "Date and time the record was last modified. (Timezone: UTC)"
+          },
+          "leaseID": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Id of the lease associated with this inspection."
+          },
+          "notesToInspector": {
+            "type": "string",
+            "description": "Notes to Inspector"
           },
           "number": {
             "type": "integer",
@@ -15257,7 +15302,7 @@
       },
       "OwnerDraw": {
         "type": "object",
-        "required": ["amount", "date", "glAccountID"],
+        "required": ["amount", "date"],
         "properties": {
           "amount": {
             "type": "number",
@@ -15636,7 +15681,7 @@
           "contactID": {
             "type": "integer",
             "format": "int64",
-            "description": "Owner Contact ID."
+            "description": "Id of the contact associated with this owner contribution."
           },
           "date": {
             "type": "string",
@@ -15646,12 +15691,12 @@
           "destinationAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Bank Account ID to Deposit."
+            "description": "Id of the bank account where the payment will be deposited."
           },
           "glAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "GL Account ID."
+            "description": "Id of the general ledger account associated with this owner contribution."
           },
           "paymentType": {
             "type": "string",
@@ -15676,9 +15721,9 @@
           "portfolioID": {
             "type": "integer",
             "format": "int64",
-            "description": "Portfolio id to apply payment."
+            "description": "Id of the portfolio to apply the payment to."
           },
-          "refNo": { "type": "string", "description": "Charge Ref No." }
+          "refNo": { "type": "string", "description": "Reference No." }
         },
         "description": "Charge for request"
       },
@@ -15880,7 +15925,7 @@
           "contactID": {
             "type": "integer",
             "format": "int64",
-            "description": "Payer contact ID."
+            "description": "Id of the contact associated with lease payment"
           },
           "date": {
             "type": "string",
@@ -15890,21 +15935,21 @@
           "depositDate": {
             "type": "string",
             "format": "date",
-            "description": "Payment Deposit Date."
+            "description": "Payment deposit date."
           },
           "destinationAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Bank Account ID to Deposit."
+            "description": "Bank GL account ID to deposit."
           },
           "leaseID": {
             "type": "integer",
             "format": "int64",
-            "description": "Lease ID to apply payment."
+            "description": "Id of the lease associated with this payment."
           },
           "paymentType": {
             "type": "string",
-            "description": "Payment Type.",
+            "description": "Payment type.",
             "enum": [
               "CHECK",
               "CHECK21",
@@ -15922,7 +15967,10 @@
               "PUBLIC_ASSISTANCE"
             ]
           },
-          "refNo": { "type": "string", "description": "Payment Ref No." }
+          "refNo": {
+            "type": "string",
+            "description": "Payment reference number"
+          }
         },
         "description": "Tenant Payment for Request"
       },
@@ -16116,10 +16164,6 @@
             "format": "double",
             "description": "The amount paid for the charge."
           },
-          "chargeStatus": {
-            "type": "string",
-            "description": "Status of the charge."
-          },
           "comments": { "type": "string", "description": "Comments." },
           "createdBy": {
             "type": "string",
@@ -16174,11 +16218,7 @@
             "format": "int64",
             "description": "Id of the portfolio associated with this charge."
           },
-          "refNo": { "type": "string", "description": "Reference number." },
-          "status": {
-            "type": "string",
-            "description": "The status of the lease."
-          }
+          "refNo": { "type": "string", "description": "Reference number." }
         },
         "description": "Charge Transaction"
       },
@@ -16189,7 +16229,7 @@
           "bankGLAccountID": {
             "type": "integer",
             "format": "int64",
-            "description": "Bank Account Number."
+            "description": "Bank general ledger account ID."
           },
           "listOfTxIDs": {
             "type": "string",

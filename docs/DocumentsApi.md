@@ -213,7 +213,7 @@ opts = {
   last_modified_date_time_start: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or after the date time specified. 
   last_modified_date_time_end: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Filters results to any item modified on or prior to the date time specified. 
   orderby: 'orderby_example', # String | Indicates the field(s) and direction to sort the results in the response.
-  entity_id: 789 # Integer | Filters results to documents associated with a specific entity id. entity ID is not required for â€œDESKTOPâ€  and â€œOTHERâ€ . Remaining entities need â€œentity IDâ€ .
+  entity_id: 789 # Integer | Filters results to documents associated with a specific entity id. entity ID is not required for DESKTOP and OTHER. Remaining entities need entity ID.
 }
 
 begin
@@ -253,7 +253,7 @@ end
 | **last_modified_date_time_start** | **Time** | Filters results to any item modified on or after the date time specified.  | [optional] |
 | **last_modified_date_time_end** | **Time** | Filters results to any item modified on or prior to the date time specified.  | [optional] |
 | **orderby** | **String** | Indicates the field(s) and direction to sort the results in the response. | [optional] |
-| **entity_id** | **Integer** | Filters results to documents associated with a specific entity id. entity ID is not required for â€œDESKTOPâ€  and â€œOTHERâ€ . Remaining entities need â€œentity IDâ€ . | [optional] |
+| **entity_id** | **Integer** | Filters results to documents associated with a specific entity id. entity ID is not required for DESKTOP and OTHER. Remaining entities need entity ID. | [optional] |
 
 ### Return type
 
@@ -466,7 +466,7 @@ end
 
 api_instance = Propertyware::DocumentsApi.new
 entity_id = 789 # Integer | Unique identifier of an entity document is attached to.
-entity_type = 'entity_type_example' # String | Entity type Document is attached to (Bill, Building, Desktop, Inspection, Lease, Portfolio, Prospect, Unit, Vendor, Work Order, Tenant, Owner, Bank Deposit, Asset)
+entity_type = 'entity_type_example' # String | Entity type Document is attached to (Asset, Bill, Bank Deposit, Building, Desktop, Lease, Owner, Portfolio, Prospect, Prospect Contact, Tenant, Unit, Vendor, Check, Credit, Service Agreement, Journal Entry, Work Order)
 body = File.new('/path/to/some/file') # File | 
 opts = {
   publish_to_tenant_portal: true, # Boolean | Indicates if the document is published to the tenant portal.
@@ -505,7 +505,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **entity_id** | **Integer** | Unique identifier of an entity document is attached to. |  |
-| **entity_type** | **String** | Entity type Document is attached to (Bill, Building, Desktop, Inspection, Lease, Portfolio, Prospect, Unit, Vendor, Work Order, Tenant, Owner, Bank Deposit, Asset) |  |
+| **entity_type** | **String** | Entity type Document is attached to (Asset, Bill, Bank Deposit, Building, Desktop, Lease, Owner, Portfolio, Prospect, Prospect Contact, Tenant, Unit, Vendor, Check, Credit, Service Agreement, Journal Entry, Work Order) |  |
 | **body** | **File** |  |  |
 | **publish_to_tenant_portal** | **Boolean** | Indicates if the document is published to the tenant portal. | [optional] |
 | **publish_to_owner_portal** | **Boolean** | Indicates if the document is published to the owner portal. | [optional] |

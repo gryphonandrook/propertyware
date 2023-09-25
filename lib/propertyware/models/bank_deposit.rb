@@ -34,7 +34,7 @@ module Propertyware
     # Date and time the record was last modified. (Timezone: UTC)
     attr_accessor :last_modified_date_time
 
-    # Name.
+    # Bank deposit name.
     attr_accessor :name
 
     # Status.

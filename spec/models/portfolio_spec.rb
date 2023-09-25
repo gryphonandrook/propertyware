@@ -147,6 +147,12 @@ describe Propertyware::Portfolio do
     end
   end
 
+  describe 'test attribute "owner_statement_report_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "owners"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -1,4 +1,3 @@
-require 'pry'
 require 'json'
 
 file = File.read('bin/propertyware.json')

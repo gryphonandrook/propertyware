@@ -8,6 +8,7 @@
 | **allow_e_signature** | **Boolean** | Indicate if the contact can receive eSignature request e-mail messages sent through Propertyware. | [optional] |
 | **alt_email** | **String** | Alternate Email Address. | [optional] |
 | **birth_date** | **Date** | Date of Birth. | [optional] |
+| **category** | **String** | Indicate contact category. Send empty \&quot;\&quot; value if contact is Uncategorized | [optional] |
 | **comments** | **String** | Description. | [optional] |
 | **company** | **String** | Company where the contact is employed. | [optional] |
 | **email** | **String** | E-mail Address. | [optional] |
@@ -37,6 +38,7 @@ instance = Propertyware::SaveContact.new(
   allow_e_signature: false,
   alt_email: null,
   birth_date: null,
+  category: null,
   comments: null,
   company: null,
   email: null,

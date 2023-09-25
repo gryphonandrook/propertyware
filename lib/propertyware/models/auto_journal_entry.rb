@@ -221,7 +221,7 @@ module Propertyware
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      frequency_validator = EnumAttributeValidator.new('String', ["WEEKLY", "MONTHLY", "QUARTERLY", "SEMIANNUAL", "YEARLY"])
+      frequency_validator = EnumAttributeValidator.new('String', ["WEEKLY", "MONTHLY", "YEARLY", "MANUALLY"])
       return false unless frequency_validator.valid?(@frequency)
       true
     end
@@ -229,7 +229,7 @@ module Propertyware
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] frequency Object to be assigned
     def frequency=(frequency)
-      validator = EnumAttributeValidator.new('String', ["WEEKLY", "MONTHLY", "QUARTERLY", "SEMIANNUAL", "YEARLY"])
+      validator = EnumAttributeValidator.new('String', ["WEEKLY", "MONTHLY", "YEARLY", "MANUALLY"])
       unless validator.valid?(frequency)
         fail ArgumentError, "invalid value #{ frequency.inspect } for \"frequency\", must be one of #{validator.allowable_values}."
       end

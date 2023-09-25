@@ -58,7 +58,7 @@ describe Propertyware::Charge do
   describe 'test attribute "frequency"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["WEEKLY", "MONTHLY", "QUARTERLY", "SEMIANNUAL", "YEARLY"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["WEEKLY", "MONTHLY", "QUARTERLY", "SEMIANUUAL", "ANUUAL", "ANUUAL_ACCRUAL"])
       # validator.allowable_values.each do |value|
       #   expect { instance.frequency = value }.not_to raise_error
       # end

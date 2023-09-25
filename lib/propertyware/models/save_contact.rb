@@ -27,6 +27,9 @@ module Propertyware
     # Date of Birth.
     attr_accessor :birth_date
 
+    # Indicate contact category. Send empty \"\" value if contact is Uncategorized
+    attr_accessor :category
+
     # Description.
     attr_accessor :comments
 
@@ -110,6 +113,7 @@ module Propertyware
         :'allow_e_signature' => :'allowESignature',
         :'alt_email' => :'altEmail',
         :'birth_date' => :'birthDate',
+        :'category' => :'category',
         :'comments' => :'comments',
         :'company' => :'company',
         :'email' => :'email',
@@ -143,6 +147,7 @@ module Propertyware
         :'allow_e_signature' => :'Boolean',
         :'alt_email' => :'String',
         :'birth_date' => :'Date',
+        :'category' => :'String',
         :'comments' => :'String',
         :'company' => :'String',
         :'email' => :'String',
@@ -199,6 +204,10 @@ module Propertyware
 
       if attributes.key?(:'birth_date')
         self.birth_date = attributes[:'birth_date']
+      end
+
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
       end
 
       if attributes.key?(:'comments')
@@ -566,6 +575,7 @@ module Propertyware
           allow_e_signature == o.allow_e_signature &&
           alt_email == o.alt_email &&
           birth_date == o.birth_date &&
+          category == o.category &&
           comments == o.comments &&
           company == o.company &&
           email == o.email &&
@@ -595,7 +605,7 @@ module Propertyware
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address, allow_e_signature, alt_email, birth_date, comments, company, email, fax, first_name, gender, home_phone, job_title, last_name, middle_name, mobile_phone, name_on_check, named_on_lease, other_phone, salutation, search_tag, suffix, work_phone].hash
+      [address, allow_e_signature, alt_email, birth_date, category, comments, company, email, fax, first_name, gender, home_phone, job_title, last_name, middle_name, mobile_phone, name_on_check, named_on_lease, other_phone, salutation, search_tag, suffix, work_phone].hash
     end
 
     # Builds the object from hash

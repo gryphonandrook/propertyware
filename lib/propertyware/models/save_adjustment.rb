@@ -25,10 +25,10 @@ module Propertyware
     # Lease Adjustment date.
     attr_accessor :date
 
-    # Lease id.
+    # Id of the lease associated with the Adjustment.
     attr_accessor :lease_id
 
-    # Ref No.
+    # Reference number.
     attr_accessor :ref_no
 
     # Attribute mapping from ruby-style variable name to JSON key.

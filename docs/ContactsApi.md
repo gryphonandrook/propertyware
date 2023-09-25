@@ -9,6 +9,7 @@ All URIs are relative to *https://api.propertyware.com/pw/api/rest/v1*
 | [**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{contactID} | Delete a contact (BETA) |
 | [**delete_contact_conversation**](ContactsApi.md#delete_contact_conversation) | **DELETE** /contacts/{contactID}/conversations/{conversationID} | Delete a contact conversation (BETA) |
 | [**get_contact**](ContactsApi.md#get_contact) | **GET** /contacts/{contactID} | Retrieve a contact |
+| [**get_contact_categories**](ContactsApi.md#get_contact_categories) | **GET** /contacts/categories | Retrieve all contact categories |
 | [**get_contact_conversation**](ContactsApi.md#get_contact_conversation) | **GET** /contacts/{contactID}/conversations/{conversationID} | Retrieve a contact conversation |
 | [**get_contact_conversations**](ContactsApi.md#get_contact_conversations) | **GET** /contacts/{contactID}/conversations | Retrieve all contact conversations |
 | [**get_contacts**](ContactsApi.md#get_contacts) | **GET** /contacts | Retrieve all contacts |
@@ -415,6 +416,84 @@ end
 ### Return type
 
 [**Contact**](Contact.md)
+
+### Authorization
+
+[organizationId](../README.md#organizationId), [clientId](../README.md#clientId), [clientSecret](../README.md#clientSecret)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_contact_categories
+
+> <Array<ContactCategory>> get_contact_categories
+
+Retrieve all contact categories
+
+Retrieves a list of contact categories.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">CONTACTS</span> - <code>Read</code> 
+
+### Examples
+
+```ruby
+require 'time'
+require 'propertyware'
+# setup authorization
+Propertyware.configure do |config|
+  # Configure API key authorization: organizationId
+  config.api_key['organizationId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['organizationId'] = 'Bearer'
+
+  # Configure API key authorization: clientId
+  config.api_key['clientId'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientId'] = 'Bearer'
+
+  # Configure API key authorization: clientSecret
+  config.api_key['clientSecret'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['clientSecret'] = 'Bearer'
+end
+
+api_instance = Propertyware::ContactsApi.new
+
+begin
+  # Retrieve all contact categories
+  result = api_instance.get_contact_categories
+  p result
+rescue Propertyware::ApiError => e
+  puts "Error when calling ContactsApi->get_contact_categories: #{e}"
+end
+```
+
+#### Using the get_contact_categories_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<ContactCategory>>, Integer, Hash)> get_contact_categories_with_http_info
+
+```ruby
+begin
+  # Retrieve all contact categories
+  data, status_code, headers = api_instance.get_contact_categories_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<ContactCategory>>
+rescue Propertyware::ApiError => e
+  puts "Error when calling ContactsApi->get_contact_categories_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Array&lt;ContactCategory&gt;**](ContactCategory.md)
 
 ### Authorization
 

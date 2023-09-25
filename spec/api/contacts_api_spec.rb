@@ -94,6 +94,17 @@ describe 'ContactsApi' do
     end
   end
 
+  # unit tests for get_contact_categories
+  # Retrieve all contact categories
+  # Retrieves a list of contact categories.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;CONTACTS&lt;/span&gt; - &lt;code&gt;Read&lt;/code&gt; 
+  # @param [Hash] opts the optional parameters
+  # @return [Array<ContactCategory>]
+  describe 'get_contact_categories test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_contact_conversation
   # Retrieve a contact conversation
   # Retrieves a specific contact conversation.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;CONTACTS&lt;/span&gt; - &lt;code&gt;Read&lt;/code&gt; 

@@ -14,16 +14,13 @@ require 'date'
 require 'time'
 
 module Propertyware
-  # Transaction
-  class Transaction
-    # Transaction amount.
+  # Adjustment
+  class Adjustment
+    # Amount.
     attr_accessor :amount
 
     # Comments.
     attr_accessor :comments
-
-    # Id of the contact associated with this transaction.
-    attr_accessor :contact_id
 
     # User who created the record.
     attr_accessor :created_by
@@ -31,16 +28,10 @@ module Propertyware
     # Date and time the record was created. (Timezone: UTC)
     attr_accessor :created_date_time
 
-    # Transaction date.
+    # Post date.
     attr_accessor :date
 
-    # Transaction deposit date.
-    attr_accessor :deposit_date
-
-    # Id of the bank account associated with this transaction.
-    attr_accessor :destination_account_id
-
-    # Id of the general ledger account associated with this transaction.
+    # Id of the general ledger account associated with this charge.
     attr_accessor :gl_account_id
 
     # Unique identifier.
@@ -52,71 +43,30 @@ module Propertyware
     # Date and time the record was last modified. (Timezone: UTC)
     attr_accessor :last_modified_date_time
 
-    # Id of the lease associated with this transaction.
+    # Id of the lease associated with this charge.
     attr_accessor :lease_id
 
-    # Name of the payee or payer.
-    attr_accessor :payee_payer
-
-    # Payment method.
-    attr_accessor :payment_method
-
-    # Payment type.
-    attr_accessor :payment_type
-
-    # Id of the portfolio associated with this transaction.
+    # Id of the portfolio associated with this charge.
     attr_accessor :portfolio_id
 
-    # Transaction reference number.
+    # Reference number.
     attr_accessor :ref_no
-
-    # Indicates if a check should be printed for this transaction.
-    attr_accessor :to_be_printed
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'amount' => :'amount',
         :'comments' => :'comments',
-        :'contact_id' => :'contactID',
         :'created_by' => :'createdBy',
         :'created_date_time' => :'createdDateTime',
         :'date' => :'date',
-        :'deposit_date' => :'depositDate',
-        :'destination_account_id' => :'destinationAccountID',
         :'gl_account_id' => :'glAccountID',
         :'id' => :'id',
         :'last_modified_by' => :'lastModifiedBy',
         :'last_modified_date_time' => :'lastModifiedDateTime',
         :'lease_id' => :'leaseID',
-        :'payee_payer' => :'payeePayer',
-        :'payment_method' => :'paymentMethod',
-        :'payment_type' => :'paymentType',
         :'portfolio_id' => :'portfolioID',
-        :'ref_no' => :'refNo',
-        :'to_be_printed' => :'toBePrinted'
+        :'ref_no' => :'refNo'
       }
     end
 
@@ -130,23 +80,16 @@ module Propertyware
       {
         :'amount' => :'Float',
         :'comments' => :'String',
-        :'contact_id' => :'Integer',
         :'created_by' => :'String',
         :'created_date_time' => :'Time',
         :'date' => :'Date',
-        :'deposit_date' => :'Date',
-        :'destination_account_id' => :'Integer',
         :'gl_account_id' => :'Integer',
         :'id' => :'Integer',
         :'last_modified_by' => :'String',
         :'last_modified_date_time' => :'Time',
         :'lease_id' => :'Integer',
-        :'payee_payer' => :'String',
-        :'payment_method' => :'String',
-        :'payment_type' => :'String',
         :'portfolio_id' => :'Integer',
-        :'ref_no' => :'String',
-        :'to_be_printed' => :'Boolean'
+        :'ref_no' => :'String'
       }
     end
 
@@ -160,13 +103,13 @@ module Propertyware
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `Propertyware::Transaction` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `Propertyware::Adjustment` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `Propertyware::Transaction`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `Propertyware::Adjustment`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -179,10 +122,6 @@ module Propertyware
         self.comments = attributes[:'comments']
       end
 
-      if attributes.key?(:'contact_id')
-        self.contact_id = attributes[:'contact_id']
-      end
-
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
       end
@@ -193,14 +132,6 @@ module Propertyware
 
       if attributes.key?(:'date')
         self.date = attributes[:'date']
-      end
-
-      if attributes.key?(:'deposit_date')
-        self.deposit_date = attributes[:'deposit_date']
-      end
-
-      if attributes.key?(:'destination_account_id')
-        self.destination_account_id = attributes[:'destination_account_id']
       end
 
       if attributes.key?(:'gl_account_id')
@@ -223,18 +154,6 @@ module Propertyware
         self.lease_id = attributes[:'lease_id']
       end
 
-      if attributes.key?(:'payee_payer')
-        self.payee_payer = attributes[:'payee_payer']
-      end
-
-      if attributes.key?(:'payment_method')
-        self.payment_method = attributes[:'payment_method']
-      end
-
-      if attributes.key?(:'payment_type')
-        self.payment_type = attributes[:'payment_type']
-      end
-
       if attributes.key?(:'portfolio_id')
         self.portfolio_id = attributes[:'portfolio_id']
       end
@@ -242,35 +161,29 @@ module Propertyware
       if attributes.key?(:'ref_no')
         self.ref_no = attributes[:'ref_no']
       end
-
-      if attributes.key?(:'to_be_printed')
-        self.to_be_printed = attributes[:'to_be_printed']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @amount.nil?
+        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
+      end
+
+      if @date.nil?
+        invalid_properties.push('invalid value for "date", date cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      payment_type_validator = EnumAttributeValidator.new('String', ["CHECK", "CHECK21", "CASHIERS_CHECK", "CREDIT_CARD", "CASH", "MONEY_ORDER", "OTHER", "CLICKPAY", "SECTION8", "EPAY", "ECHECK", "NACHA", "RENTMONEY", "PUBLIC_ASSISTANCE"])
-      return false unless payment_type_validator.valid?(@payment_type)
+      return false if @amount.nil?
+      return false if @date.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] payment_type Object to be assigned
-    def payment_type=(payment_type)
-      validator = EnumAttributeValidator.new('String', ["CHECK", "CHECK21", "CASHIERS_CHECK", "CREDIT_CARD", "CASH", "MONEY_ORDER", "OTHER", "CLICKPAY", "SECTION8", "EPAY", "ECHECK", "NACHA", "RENTMONEY", "PUBLIC_ASSISTANCE"])
-      unless validator.valid?(payment_type)
-        fail ArgumentError, "invalid value #{ payment_type.inspect } for \"payment_type\", must be one of #{validator.allowable_values}."
-      end
-      @payment_type = payment_type
     end
 
     # Checks equality by comparing each attribute.
@@ -280,23 +193,16 @@ module Propertyware
       self.class == o.class &&
           amount == o.amount &&
           comments == o.comments &&
-          contact_id == o.contact_id &&
           created_by == o.created_by &&
           created_date_time == o.created_date_time &&
           date == o.date &&
-          deposit_date == o.deposit_date &&
-          destination_account_id == o.destination_account_id &&
           gl_account_id == o.gl_account_id &&
           id == o.id &&
           last_modified_by == o.last_modified_by &&
           last_modified_date_time == o.last_modified_date_time &&
           lease_id == o.lease_id &&
-          payee_payer == o.payee_payer &&
-          payment_method == o.payment_method &&
-          payment_type == o.payment_type &&
           portfolio_id == o.portfolio_id &&
-          ref_no == o.ref_no &&
-          to_be_printed == o.to_be_printed
+          ref_no == o.ref_no
     end
 
     # @see the `==` method
@@ -308,7 +214,7 @@ module Propertyware
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amount, comments, contact_id, created_by, created_date_time, date, deposit_date, destination_account_id, gl_account_id, id, last_modified_by, last_modified_date_time, lease_id, payee_payer, payment_method, payment_type, portfolio_id, ref_no, to_be_printed].hash
+      [amount, comments, created_by, created_date_time, date, gl_account_id, id, last_modified_by, last_modified_date_time, lease_id, portfolio_id, ref_no].hash
     end
 
     # Builds the object from hash

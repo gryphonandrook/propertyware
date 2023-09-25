@@ -295,7 +295,7 @@ end
 
 ## create_lease_adjustment
 
-> <ChargeTx> create_lease_adjustment(save_adjustment)
+> <Adjustment> create_lease_adjustment(save_adjustment)
 
 Create a lease adjustment (BETA)
 
@@ -340,7 +340,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ChargeTx>, Integer, Hash)> create_lease_adjustment_with_http_info(save_adjustment)
+> <Array(<Adjustment>, Integer, Hash)> create_lease_adjustment_with_http_info(save_adjustment)
 
 ```ruby
 begin
@@ -348,7 +348,7 @@ begin
   data, status_code, headers = api_instance.create_lease_adjustment_with_http_info(save_adjustment)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ChargeTx>
+  p data # => <Adjustment>
 rescue Propertyware::ApiError => e
   puts "Error when calling LeasesApi->create_lease_adjustment_with_http_info: #{e}"
 end
@@ -362,7 +362,7 @@ end
 
 ### Return type
 
-[**ChargeTx**](ChargeTx.md)
+[**Adjustment**](Adjustment.md)
 
 ### Authorization
 
@@ -813,7 +813,7 @@ Propertyware.configure do |config|
 end
 
 api_instance = Propertyware::LeasesApi.new
-save_refund = Propertyware::SaveRefund.new({amount: 3.56, date: Date.today, destination_account_id: 3.56, gl_account_id: 3.56, lease_id: 3.56, to_be_printed: false, to_primary_tenant: false}) # SaveRefund | saveRefund
+save_refund = Propertyware::SaveRefund.new({amount: 3.56, date: Date.today, destination_account_id: 3.56, gl_account_id: 3.56, lease_id: 3.56}) # SaveRefund | saveRefund
 
 begin
   # Create a lease refund (BETA)
@@ -1191,11 +1191,11 @@ end
 
 ## get_lease_adjustments
 
-> <Array<Transaction>> get_lease_adjustments(opts)
+> <Array<Adjustment>> get_lease_adjustments(opts)
 
 Retrieve all the adjustments
 
-Retrieves a list of adjustments.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">GL ACCOUNTS</span> - <code>Read</code> <br/><br/><b>Sortable by:</b> <code>leaseid</code>, <code>postdate</code>, <code>id</code>
+Retrieves a list of adjustments.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">LEASES</span> - <code>Read</code> <br/><br/><b>Sortable by:</b> <code>leaseid</code>, <code>postdate</code>, <code>id</code>
 
 ### Examples
 
@@ -1247,7 +1247,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<Transaction>>, Integer, Hash)> get_lease_adjustments_with_http_info(opts)
+> <Array(<Array<Adjustment>>, Integer, Hash)> get_lease_adjustments_with_http_info(opts)
 
 ```ruby
 begin
@@ -1255,7 +1255,7 @@ begin
   data, status_code, headers = api_instance.get_lease_adjustments_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<Transaction>>
+  p data # => <Array<Adjustment>>
 rescue Propertyware::ApiError => e
   puts "Error when calling LeasesApi->get_lease_adjustments_with_http_info: #{e}"
 end
@@ -1278,7 +1278,7 @@ end
 
 ### Return type
 
-[**Array&lt;Transaction&gt;**](Transaction.md)
+[**Array&lt;Adjustment&gt;**](Adjustment.md)
 
 ### Authorization
 
@@ -2081,7 +2081,7 @@ end
 
 ## get_lease_discounts
 
-> <Array<Transaction>> get_lease_discounts(opts)
+> <Array<Discount>> get_lease_discounts(opts)
 
 Retrieve all the lease discounts
 
@@ -2135,7 +2135,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<Transaction>>, Integer, Hash)> get_lease_discounts_with_http_info(opts)
+> <Array(<Array<Discount>>, Integer, Hash)> get_lease_discounts_with_http_info(opts)
 
 ```ruby
 begin
@@ -2143,7 +2143,7 @@ begin
   data, status_code, headers = api_instance.get_lease_discounts_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<Transaction>>
+  p data # => <Array<Discount>>
 rescue Propertyware::ApiError => e
   puts "Error when calling LeasesApi->get_lease_discounts_with_http_info: #{e}"
 end
@@ -2164,7 +2164,7 @@ end
 
 ### Return type
 
-[**Array&lt;Transaction&gt;**](Transaction.md)
+[**Array&lt;Discount&gt;**](Discount.md)
 
 ### Authorization
 
@@ -3003,7 +3003,7 @@ end
 
 ## update_lease_adjustment
 
-> <ChargeTx> update_lease_adjustment(adjustment_id, save_adjustment)
+> <Adjustment> update_lease_adjustment(adjustment_id, save_adjustment)
 
 Update a lease adjustment (BETA)
 
@@ -3049,7 +3049,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ChargeTx>, Integer, Hash)> update_lease_adjustment_with_http_info(adjustment_id, save_adjustment)
+> <Array(<Adjustment>, Integer, Hash)> update_lease_adjustment_with_http_info(adjustment_id, save_adjustment)
 
 ```ruby
 begin
@@ -3057,7 +3057,7 @@ begin
   data, status_code, headers = api_instance.update_lease_adjustment_with_http_info(adjustment_id, save_adjustment)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ChargeTx>
+  p data # => <Adjustment>
 rescue Propertyware::ApiError => e
   puts "Error when calling LeasesApi->update_lease_adjustment_with_http_info: #{e}"
 end
@@ -3072,7 +3072,7 @@ end
 
 ### Return type
 
-[**ChargeTx**](ChargeTx.md)
+[**Adjustment**](Adjustment.md)
 
 ### Authorization
 
@@ -3449,7 +3449,7 @@ end
 
 api_instance = Propertyware::LeasesApi.new
 refund_id = 789 # Integer | Refund ID
-save_refund = Propertyware::SaveRefund.new({amount: 3.56, date: Date.today, destination_account_id: 3.56, gl_account_id: 3.56, lease_id: 3.56, to_be_printed: false, to_primary_tenant: false}) # SaveRefund | saveRefund
+save_refund = Propertyware::SaveRefund.new({amount: 3.56, date: Date.today, destination_account_id: 3.56, gl_account_id: 3.56, lease_id: 3.56}) # SaveRefund | saveRefund
 
 begin
   # Update a lease refund (BETA)

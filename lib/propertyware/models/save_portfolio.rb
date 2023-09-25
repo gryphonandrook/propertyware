@@ -25,6 +25,12 @@ module Propertyware
     # Date when the accounting period for the portfolio will close.
     attr_accessor :closing_date
 
+    # Portfolio Default Bank Account ID
+    attr_accessor :default_bank_account_id
+
+    # Portfolio Default Security Deposit Bank Account ID
+    attr_accessor :default_secdep_account_id
+
     # Indicates that the owner should not be paid owner draws.
     attr_accessor :do_not_pay_owner_draw
 
@@ -39,6 +45,9 @@ module Propertyware
 
     # Portfolio owner Ids
     attr_accessor :owner_ids
+
+    # Portfolio Owner Statement Report ID
+    attr_accessor :owner_statement_report_id
 
     # Portfolio owners.
     attr_accessor :owners
@@ -77,11 +86,14 @@ module Propertyware
         :'abbreviation' => :'abbreviation',
         :'cash_accrual' => :'cashAccrual',
         :'closing_date' => :'closingDate',
+        :'default_bank_account_id' => :'defaultBankAccountID',
+        :'default_secdep_account_id' => :'defaultSecdepAccountID',
         :'do_not_pay_owner_draw' => :'doNotPayOwnerDraw',
         :'maintenance_spending_limit' => :'maintenanceSpendingLimit',
         :'maintenance_spending_limit_time' => :'maintenanceSpendingLimitTime',
         :'name' => :'name',
         :'owner_ids' => :'ownerIds',
+        :'owner_statement_report_id' => :'ownerStatementReportID',
         :'owners' => :'owners',
         :'sticky_note' => :'stickyNote',
         :'target_operating_reserve' => :'targetOperatingReserve'
@@ -99,11 +111,14 @@ module Propertyware
         :'abbreviation' => :'String',
         :'cash_accrual' => :'String',
         :'closing_date' => :'Date',
+        :'default_bank_account_id' => :'Integer',
+        :'default_secdep_account_id' => :'Integer',
         :'do_not_pay_owner_draw' => :'Boolean',
         :'maintenance_spending_limit' => :'Float',
         :'maintenance_spending_limit_time' => :'String',
         :'name' => :'String',
         :'owner_ids' => :'Array<Integer>',
+        :'owner_statement_report_id' => :'Integer',
         :'owners' => :'Array<SaveOwner>',
         :'sticky_note' => :'String',
         :'target_operating_reserve' => :'Float'
@@ -143,6 +158,14 @@ module Propertyware
         self.closing_date = attributes[:'closing_date']
       end
 
+      if attributes.key?(:'default_bank_account_id')
+        self.default_bank_account_id = attributes[:'default_bank_account_id']
+      end
+
+      if attributes.key?(:'default_secdep_account_id')
+        self.default_secdep_account_id = attributes[:'default_secdep_account_id']
+      end
+
       if attributes.key?(:'do_not_pay_owner_draw')
         self.do_not_pay_owner_draw = attributes[:'do_not_pay_owner_draw']
       end
@@ -163,6 +186,10 @@ module Propertyware
         if (value = attributes[:'owner_ids']).is_a?(Array)
           self.owner_ids = value
         end
+      end
+
+      if attributes.key?(:'owner_statement_report_id')
+        self.owner_statement_report_id = attributes[:'owner_statement_report_id']
       end
 
       if attributes.key?(:'owners')
@@ -235,11 +262,14 @@ module Propertyware
           abbreviation == o.abbreviation &&
           cash_accrual == o.cash_accrual &&
           closing_date == o.closing_date &&
+          default_bank_account_id == o.default_bank_account_id &&
+          default_secdep_account_id == o.default_secdep_account_id &&
           do_not_pay_owner_draw == o.do_not_pay_owner_draw &&
           maintenance_spending_limit == o.maintenance_spending_limit &&
           maintenance_spending_limit_time == o.maintenance_spending_limit_time &&
           name == o.name &&
           owner_ids == o.owner_ids &&
+          owner_statement_report_id == o.owner_statement_report_id &&
           owners == o.owners &&
           sticky_note == o.sticky_note &&
           target_operating_reserve == o.target_operating_reserve
@@ -254,7 +284,7 @@ module Propertyware
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [abbreviation, cash_accrual, closing_date, do_not_pay_owner_draw, maintenance_spending_limit, maintenance_spending_limit_time, name, owner_ids, owners, sticky_note, target_operating_reserve].hash
+      [abbreviation, cash_accrual, closing_date, default_bank_account_id, default_secdep_account_id, do_not_pay_owner_draw, maintenance_spending_limit, maintenance_spending_limit_time, name, owner_ids, owner_statement_report_id, owners, sticky_note, target_operating_reserve].hash
     end
 
     # Builds the object from hash

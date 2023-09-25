@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module Propertyware
-  # Account
+  # General Ledger Account
   class Account
     # Account code.
     attr_accessor :account_code

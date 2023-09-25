@@ -23,6 +23,7 @@
 | **maintenance_spending_limit_time** | **String** | Monthly or yearly maintenance spending limit time set for the portfolio for maintenance bills created by work orders. | [optional] |
 | **modified_by** | **String** | Id of the user who last modified the portfolio information. | [optional] |
 | **name** | **String** | Portfolio name. | [optional] |
+| **owner_statement_report_id** | **Integer** | Portfolio Owner Statement Report ID | [optional] |
 | **owners** | [**Array&lt;Owner&gt;**](Owner.md) | List of portfolio owners. | [optional] |
 | **sticky_note** | **String** | Sticky notes. | [optional] |
 | **target_operating_reserve** | **Float** | Minimum balance to be maintained within the portfolio at all times. | [optional] |
@@ -52,6 +53,7 @@ instance = Propertyware::Portfolio.new(
   maintenance_spending_limit_time: null,
   modified_by: null,
   name: null,
+  owner_statement_report_id: null,
   owners: null,
   sticky_note: null,
   target_operating_reserve: null

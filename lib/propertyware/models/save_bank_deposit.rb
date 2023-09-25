@@ -16,7 +16,7 @@ require 'time'
 module Propertyware
   # Bank Deposit for Request
   class SaveBankDeposit
-    # Bank Account Number.
+    # Bank general ledger account ID.
     attr_accessor :bank_gl_account_id
 
     # Comma separated list of Transaction IDs.

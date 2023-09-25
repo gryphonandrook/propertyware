@@ -28,7 +28,7 @@ module Propertyware
     # Discount GL Account ID.
     attr_accessor :discount_account_id
 
-    # Lease id.
+    # Id of the lease associated with this discount.
     attr_accessor :lease_id
 
     # Ref No.

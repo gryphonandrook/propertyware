@@ -10,7 +10,7 @@
 | **id** | **Integer** | Unique identifier. | [optional] |
 | **last_modified_by** | **String** | User who last modified the record. | [optional] |
 | **last_modified_date_time** | **Time** | Date and time the record was last modified. (Timezone: UTC) | [optional] |
-| **name** | **String** | Name. | [optional] |
+| **name** | **String** | Bank deposit name. | [optional] |
 | **status** | **String** | Status. | [optional] |
 
 ## Example

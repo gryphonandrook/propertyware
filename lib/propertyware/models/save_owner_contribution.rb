@@ -22,25 +22,25 @@ module Propertyware
     # Comments.
     attr_accessor :comments
 
-    # Owner Contact ID.
+    # Id of the contact associated with this owner contribution.
     attr_accessor :contact_id
 
     # Post Date.
     attr_accessor :date
 
-    # Bank Account ID to Deposit.
+    # Id of the bank account where the payment will be deposited.
     attr_accessor :destination_account_id
 
-    # GL Account ID.
+    # Id of the general ledger account associated with this owner contribution.
     attr_accessor :gl_account_id
 
     # Payment Type.
     attr_accessor :payment_type
 
-    # Portfolio id to apply payment.
+    # Id of the portfolio to apply the payment to.
     attr_accessor :portfolio_id
 
-    # Charge Ref No.
+    # Reference No.
     attr_accessor :ref_no
 
     class EnumAttributeValidator

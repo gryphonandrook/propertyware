@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **bank_gl_account_id** | **Integer** | Bank Account Number. |  |
+| **bank_gl_account_id** | **Integer** | Bank general ledger account ID. |  |
 | **list_of_tx_ids** | **String** | Comma separated list of Transaction IDs. |  |
 
 ## Example

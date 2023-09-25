@@ -22,25 +22,25 @@ module Propertyware
     # Comments.
     attr_accessor :comments
 
-    # Payer contact ID.
+    # Id of the contact associated with lease payment
     attr_accessor :contact_id
 
     # Post Date.
     attr_accessor :date
 
-    # Payment Deposit Date.
+    # Payment deposit date.
     attr_accessor :deposit_date
 
-    # Bank Account ID to Deposit.
+    # Bank GL account ID to deposit.
     attr_accessor :destination_account_id
 
-    # Lease ID to apply payment.
+    # Id of the lease associated with this payment.
     attr_accessor :lease_id
 
-    # Payment Type.
+    # Payment type.
     attr_accessor :payment_type
 
-    # Payment Ref No.
+    # Payment reference number
     attr_accessor :ref_no
 
     class EnumAttributeValidator

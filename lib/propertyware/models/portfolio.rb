@@ -73,6 +73,9 @@ module Propertyware
     # Portfolio name.
     attr_accessor :name
 
+    # Portfolio Owner Statement Report ID
+    attr_accessor :owner_statement_report_id
+
     # List of portfolio owners.
     attr_accessor :owners
 
@@ -126,6 +129,7 @@ module Propertyware
         :'maintenance_spending_limit_time' => :'maintenanceSpendingLimitTime',
         :'modified_by' => :'modifiedBy',
         :'name' => :'name',
+        :'owner_statement_report_id' => :'ownerStatementReportID',
         :'owners' => :'owners',
         :'sticky_note' => :'stickyNote',
         :'target_operating_reserve' => :'targetOperatingReserve'
@@ -159,6 +163,7 @@ module Propertyware
         :'maintenance_spending_limit_time' => :'String',
         :'modified_by' => :'String',
         :'name' => :'String',
+        :'owner_statement_report_id' => :'Integer',
         :'owners' => :'Array<Owner>',
         :'sticky_note' => :'String',
         :'target_operating_reserve' => :'Float'
@@ -264,6 +269,10 @@ module Propertyware
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'owner_statement_report_id')
+        self.owner_statement_report_id = attributes[:'owner_statement_report_id']
+      end
+
       if attributes.key?(:'owners')
         if (value = attributes[:'owners']).is_a?(Array)
           self.owners = value
@@ -340,6 +349,7 @@ module Propertyware
           maintenance_spending_limit_time == o.maintenance_spending_limit_time &&
           modified_by == o.modified_by &&
           name == o.name &&
+          owner_statement_report_id == o.owner_statement_report_id &&
           owners == o.owners &&
           sticky_note == o.sticky_note &&
           target_operating_reserve == o.target_operating_reserve
@@ -354,7 +364,7 @@ module Propertyware
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [abbreviation, active, cash_accrual, closing_date, created_by, created_date_time, custom_fields, default_bank_account_id, default_bank_account_number_and_description, default_security_deposit_bank_account_id, default_security_deposit_bank_account_number_and_description, do_not_pay_owner_draw, id, last_modified_by, last_modified_date_time, maintenance_spending_limit, maintenance_spending_limit_time, modified_by, name, owners, sticky_note, target_operating_reserve].hash
+      [abbreviation, active, cash_accrual, closing_date, created_by, created_date_time, custom_fields, default_bank_account_id, default_bank_account_number_and_description, default_security_deposit_bank_account_id, default_security_deposit_bank_account_number_and_description, do_not_pay_owner_draw, id, last_modified_by, last_modified_date_time, maintenance_spending_limit, maintenance_spending_limit_time, modified_by, name, owner_statement_report_id, owners, sticky_note, target_operating_reserve].hash
     end
 
     # Builds the object from hash

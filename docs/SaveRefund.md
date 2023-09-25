@@ -7,12 +7,12 @@
 | **amount** | **Float** | Amount. |  |
 | **comments** | **String** | Comments. | [optional] |
 | **date** | **Date** | Post Date. |  |
-| **destination_account_id** | **Integer** | Bank GL Account to pay from. |  |
-| **gl_account_id** | **Integer** | Refund GL Account. |  |
-| **lease_id** | **Integer** | Lease id to apply payment. |  |
-| **ref_no** | **String** | Payment Ref No. | [optional] |
-| **to_be_printed** | **Boolean** | Bank GL Account to pay from. |  |
-| **to_primary_tenant** | **Boolean** | Bank GL Account to pay from. |  |
+| **destination_account_id** | **Integer** | Id of the bank account to send the refund from. |  |
+| **gl_account_id** | **Integer** | Id of the general ledger account associated with the refund. |  |
+| **lease_id** | **Integer** | Id of the lease associated with the refund. |  |
+| **ref_no** | **String** | Reference number. | [optional] |
+| **to_be_printed** | **Boolean** | Indicates if the check is to be printed. | [optional] |
+| **to_primary_tenant** | **Boolean** | Indicates if refund is for primary contact only | [optional] |
 
 ## Example
 

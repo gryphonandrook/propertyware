@@ -6,12 +6,12 @@
 | ---- | ---- | ----------- | ----- |
 | **amount** | **Float** | Amount. |  |
 | **comments** | **String** | Comments. | [optional] |
-| **contact_id** | **Integer** | Owner Contact ID. |  |
+| **contact_id** | **Integer** | Id of the contact associated with this owner draw. |  |
 | **date** | **Date** | Post Date. |  |
-| **destination_account_id** | **Integer** | Bank Account ID to Pay From. |  |
-| **gl_account_id** | **Integer** | GL Account id. |  |
-| **portfolio_id** | **Integer** | Portfolio ID. |  |
-| **ref_no** | **String** | Check no required when payment method is Hand written check . | [optional] |
+| **destination_account_id** | **Integer** | Id of the bank account where the payment will be made from. |  |
+| **gl_account_id** | **Integer** | Id of the general ledger account associated with this owner draw. |  |
+| **portfolio_id** | **Integer** | Id of the portfolio associated with this owner draw. |  |
+| **ref_no** | **String** | Check no required when payment method is Hand written check (i.e toBePrinted &#x3D; false). | [optional] |
 | **to_be_printed** | **Boolean** | Indicates if Check is to be printed. |  |
 
 ## Example

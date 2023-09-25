@@ -25,9 +25,6 @@ module Propertyware
     # The amount paid for the charge.
     attr_accessor :amount_paid
 
-    # Status of the charge.
-    attr_accessor :charge_status
-
     # Comments.
     attr_accessor :comments
 
@@ -67,16 +64,12 @@ module Propertyware
     # Reference number.
     attr_accessor :ref_no
 
-    # The status of the lease.
-    attr_accessor :status
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'amount' => :'amount',
         :'amount_due' => :'amountDue',
         :'amount_paid' => :'amountPaid',
-        :'charge_status' => :'chargeStatus',
         :'comments' => :'comments',
         :'created_by' => :'createdBy',
         :'created_date_time' => :'createdDateTime',
@@ -89,8 +82,7 @@ module Propertyware
         :'parent_tx_id' => :'parentTxID',
         :'payments' => :'payments',
         :'portfolio_id' => :'portfolioID',
-        :'ref_no' => :'refNo',
-        :'status' => :'status'
+        :'ref_no' => :'refNo'
       }
     end
 
@@ -105,7 +97,6 @@ module Propertyware
         :'amount' => :'Float',
         :'amount_due' => :'Float',
         :'amount_paid' => :'Float',
-        :'charge_status' => :'String',
         :'comments' => :'String',
         :'created_by' => :'String',
         :'created_date_time' => :'Time',
@@ -118,8 +109,7 @@ module Propertyware
         :'parent_tx_id' => :'Integer',
         :'payments' => :'Array<PaymentCharge>',
         :'portfolio_id' => :'Integer',
-        :'ref_no' => :'String',
-        :'status' => :'String'
+        :'ref_no' => :'String'
       }
     end
 
@@ -154,10 +144,6 @@ module Propertyware
 
       if attributes.key?(:'amount_paid')
         self.amount_paid = attributes[:'amount_paid']
-      end
-
-      if attributes.key?(:'charge_status')
-        self.charge_status = attributes[:'charge_status']
       end
 
       if attributes.key?(:'comments')
@@ -213,10 +199,6 @@ module Propertyware
       if attributes.key?(:'ref_no')
         self.ref_no = attributes[:'ref_no']
       end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -250,7 +232,6 @@ module Propertyware
           amount == o.amount &&
           amount_due == o.amount_due &&
           amount_paid == o.amount_paid &&
-          charge_status == o.charge_status &&
           comments == o.comments &&
           created_by == o.created_by &&
           created_date_time == o.created_date_time &&
@@ -263,8 +244,7 @@ module Propertyware
           parent_tx_id == o.parent_tx_id &&
           payments == o.payments &&
           portfolio_id == o.portfolio_id &&
-          ref_no == o.ref_no &&
-          status == o.status
+          ref_no == o.ref_no
     end
 
     # @see the `==` method
@@ -276,7 +256,7 @@ module Propertyware
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amount, amount_due, amount_paid, charge_status, comments, created_by, created_date_time, date, gl_account_id, id, last_modified_by, last_modified_date_time, lease_id, parent_tx_id, payments, portfolio_id, ref_no, status].hash
+      [amount, amount_due, amount_paid, comments, created_by, created_date_time, date, gl_account_id, id, last_modified_by, last_modified_date_time, lease_id, parent_tx_id, payments, portfolio_id, ref_no].hash
     end
 
     # Builds the object from hash

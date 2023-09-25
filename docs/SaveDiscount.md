@@ -8,7 +8,7 @@
 | **comments** | **String** | Comments. | [optional] |
 | **date** | **Date** | Date. |  |
 | **discount_account_id** | **Integer** | Discount GL Account ID. |  |
-| **lease_id** | **Integer** | Lease id. |  |
+| **lease_id** | **Integer** | Id of the lease associated with this discount. |  |
 | **ref_no** | **String** | Ref No. | [optional] |
 
 ## Example

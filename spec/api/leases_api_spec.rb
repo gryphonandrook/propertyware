@@ -75,7 +75,7 @@ describe 'LeasesApi' do
   # &lt;p class&#x3D;\&quot;betaError\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Write access is only available to customers who have opted in to our beta program. Please reach out to support if you&#39;d like to be included.&lt;/p&gt; Creates a lease adjustment.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;LEASES&lt;/span&gt; - &lt;code&gt;Write&lt;/code&gt; 
   # @param save_adjustment saveAdjustment
   # @param [Hash] opts the optional parameters
-  # @return [ChargeTx]
+  # @return [Adjustment]
   describe 'create_lease_adjustment test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -206,7 +206,7 @@ describe 'LeasesApi' do
 
   # unit tests for get_lease_adjustments
   # Retrieve all the adjustments
-  # Retrieves a list of adjustments.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;GL ACCOUNTS&lt;/span&gt; - &lt;code&gt;Read&lt;/code&gt; &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Sortable by:&lt;/b&gt; &lt;code&gt;leaseid&lt;/code&gt;, &lt;code&gt;postdate&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt;
+  # Retrieves a list of adjustments.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;LEASES&lt;/span&gt; - &lt;code&gt;Read&lt;/code&gt; &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Sortable by:&lt;/b&gt; &lt;code&gt;leaseid&lt;/code&gt;, &lt;code&gt;postdate&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt;
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset &#x60;offset&#x60; indicates the position of the first record to return. The offset is zero-based and the default is 0.
   # @option opts [Integer] :limit &#x60;limit&#x60; indicates the maximum number of results to be returned in the response. &#x60;limit&#x60; can range between 1 and 500 and the default is 100.
@@ -218,7 +218,7 @@ describe 'LeasesApi' do
   # @option opts [Integer] :portfolio_id Filters results associated with a specific portfolio.
   # @option opts [Integer] :lease_id Filters results with Lease ID.
   # @option opts [String] :status Filters results to with Lease Status.
-  # @return [Array<Transaction>]
+  # @return [Array<Adjustment>]
   describe 'get_lease_adjustments test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -371,7 +371,7 @@ describe 'LeasesApi' do
   # @option opts [Integer] :lease_id Filters results to any LeaseID.
   # @option opts [Date] :post_date_start Filters results to any discount with a start date on or after the date specified.
   # @option opts [Date] :post_date_end Filters results to any discount with a start date on or prior to the date specified.
-  # @return [Array<Transaction>]
+  # @return [Array<Discount>]
   describe 'get_lease_discounts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -536,7 +536,7 @@ describe 'LeasesApi' do
   # @param adjustment_id Adjustment ID
   # @param save_adjustment saveAdjustment
   # @param [Hash] opts the optional parameters
-  # @return [ChargeTx]
+  # @return [Adjustment]
   describe 'update_lease_adjustment test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -239,7 +239,7 @@ module Propertyware
     # <p class=\"betaError\"><b>Note: </b>Write access is only available to customers who have opted in to our beta program. Please reach out to support if you'd like to be included.</p> Creates a lease adjustment.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">LEASES</span> - <code>Write</code> 
     # @param save_adjustment [SaveAdjustment] saveAdjustment
     # @param [Hash] opts the optional parameters
-    # @return [ChargeTx]
+    # @return [Adjustment]
     def create_lease_adjustment(save_adjustment, opts = {})
       data, _status_code, _headers = create_lease_adjustment_with_http_info(save_adjustment, opts)
       data
@@ -249,7 +249,7 @@ module Propertyware
     # &lt;p class&#x3D;\&quot;betaError\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Write access is only available to customers who have opted in to our beta program. Please reach out to support if you&#39;d like to be included.&lt;/p&gt; Creates a lease adjustment.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;LEASES&lt;/span&gt; - &lt;code&gt;Write&lt;/code&gt; 
     # @param save_adjustment [SaveAdjustment] saveAdjustment
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ChargeTx, Integer, Hash)>] ChargeTx data, response status code and response headers
+    # @return [Array<(Adjustment, Integer, Hash)>] Adjustment data, response status code and response headers
     def create_lease_adjustment_with_http_info(save_adjustment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeasesApi.create_lease_adjustment ...'
@@ -281,7 +281,7 @@ module Propertyware
       post_body = opts[:debug_body] || @api_client.object_to_http_body(save_adjustment)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ChargeTx'
+      return_type = opts[:debug_return_type] || 'Adjustment'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
@@ -973,7 +973,7 @@ module Propertyware
     end
 
     # Retrieve all the adjustments
-    # Retrieves a list of adjustments.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">GL ACCOUNTS</span> - <code>Read</code> <br/><br/><b>Sortable by:</b> <code>leaseid</code>, <code>postdate</code>, <code>id</code>
+    # Retrieves a list of adjustments.<br/><br/><b>Required permission:</b><br/><span class=\"permissionBlock\">LEASES</span> - <code>Read</code> <br/><br/><b>Sortable by:</b> <code>leaseid</code>, <code>postdate</code>, <code>id</code>
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset &#x60;offset&#x60; indicates the position of the first record to return. The offset is zero-based and the default is 0.
     # @option opts [Integer] :limit &#x60;limit&#x60; indicates the maximum number of results to be returned in the response. &#x60;limit&#x60; can range between 1 and 500 and the default is 100. (default to 100)
@@ -985,14 +985,14 @@ module Propertyware
     # @option opts [Integer] :portfolio_id Filters results associated with a specific portfolio.
     # @option opts [Integer] :lease_id Filters results with Lease ID.
     # @option opts [String] :status Filters results to with Lease Status.
-    # @return [Array<Transaction>]
+    # @return [Array<Adjustment>]
     def get_lease_adjustments(opts = {})
       data, _status_code, _headers = get_lease_adjustments_with_http_info(opts)
       data
     end
 
     # Retrieve all the adjustments
-    # Retrieves a list of adjustments.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;GL ACCOUNTS&lt;/span&gt; - &lt;code&gt;Read&lt;/code&gt; &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Sortable by:&lt;/b&gt; &lt;code&gt;leaseid&lt;/code&gt;, &lt;code&gt;postdate&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt;
+    # Retrieves a list of adjustments.&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;LEASES&lt;/span&gt; - &lt;code&gt;Read&lt;/code&gt; &lt;br/&gt;&lt;br/&gt;&lt;b&gt;Sortable by:&lt;/b&gt; &lt;code&gt;leaseid&lt;/code&gt;, &lt;code&gt;postdate&lt;/code&gt;, &lt;code&gt;id&lt;/code&gt;
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset &#x60;offset&#x60; indicates the position of the first record to return. The offset is zero-based and the default is 0.
     # @option opts [Integer] :limit &#x60;limit&#x60; indicates the maximum number of results to be returned in the response. &#x60;limit&#x60; can range between 1 and 500 and the default is 100. (default to 100)
@@ -1004,7 +1004,7 @@ module Propertyware
     # @option opts [Integer] :portfolio_id Filters results associated with a specific portfolio.
     # @option opts [Integer] :lease_id Filters results with Lease ID.
     # @option opts [String] :status Filters results to with Lease Status.
-    # @return [Array<(Array<Transaction>, Integer, Hash)>] Array<Transaction> data, response status code and response headers
+    # @return [Array<(Array<Adjustment>, Integer, Hash)>] Array<Adjustment> data, response status code and response headers
     def get_lease_adjustments_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeasesApi.get_lease_adjustments ...'
@@ -1037,7 +1037,7 @@ module Propertyware
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<Transaction>'
+      return_type = opts[:debug_return_type] || 'Array<Adjustment>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
@@ -1716,7 +1716,7 @@ module Propertyware
     # @option opts [Integer] :lease_id Filters results to any LeaseID.
     # @option opts [Date] :post_date_start Filters results to any discount with a start date on or after the date specified.
     # @option opts [Date] :post_date_end Filters results to any discount with a start date on or prior to the date specified.
-    # @return [Array<Transaction>]
+    # @return [Array<Discount>]
     def get_lease_discounts(opts = {})
       data, _status_code, _headers = get_lease_discounts_with_http_info(opts)
       data
@@ -1733,7 +1733,7 @@ module Propertyware
     # @option opts [Integer] :lease_id Filters results to any LeaseID.
     # @option opts [Date] :post_date_start Filters results to any discount with a start date on or after the date specified.
     # @option opts [Date] :post_date_end Filters results to any discount with a start date on or prior to the date specified.
-    # @return [Array<(Array<Transaction>, Integer, Hash)>] Array<Transaction> data, response status code and response headers
+    # @return [Array<(Array<Discount>, Integer, Hash)>] Array<Discount> data, response status code and response headers
     def get_lease_discounts_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeasesApi.get_lease_discounts ...'
@@ -1764,7 +1764,7 @@ module Propertyware
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<Transaction>'
+      return_type = opts[:debug_return_type] || 'Array<Discount>'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']
@@ -2489,7 +2489,7 @@ module Propertyware
     # @param adjustment_id [Integer] Adjustment ID
     # @param save_adjustment [SaveAdjustment] saveAdjustment
     # @param [Hash] opts the optional parameters
-    # @return [ChargeTx]
+    # @return [Adjustment]
     def update_lease_adjustment(adjustment_id, save_adjustment, opts = {})
       data, _status_code, _headers = update_lease_adjustment_with_http_info(adjustment_id, save_adjustment, opts)
       data
@@ -2500,7 +2500,7 @@ module Propertyware
     # @param adjustment_id [Integer] Adjustment ID
     # @param save_adjustment [SaveAdjustment] saveAdjustment
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ChargeTx, Integer, Hash)>] ChargeTx data, response status code and response headers
+    # @return [Array<(Adjustment, Integer, Hash)>] Adjustment data, response status code and response headers
     def update_lease_adjustment_with_http_info(adjustment_id, save_adjustment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeasesApi.update_lease_adjustment ...'
@@ -2536,7 +2536,7 @@ module Propertyware
       post_body = opts[:debug_body] || @api_client.object_to_http_body(save_adjustment)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ChargeTx'
+      return_type = opts[:debug_return_type] || 'Adjustment'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['organizationId', 'clientId', 'clientSecret']

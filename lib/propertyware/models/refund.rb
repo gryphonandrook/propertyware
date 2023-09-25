@@ -28,10 +28,10 @@ module Propertyware
     # Post date.
     attr_accessor :date
 
-    # Id of the bank account to send the refund to.
+    # Id of the bank account to send the refund from.
     attr_accessor :destination_account_id
 
-    # Id of the general ledger associated with the refund.
+    # Id of the general ledger account associated with the refund.
     attr_accessor :gl_account_id
 
     # Unique identifier.
@@ -193,26 +193,6 @@ module Propertyware
         invalid_properties.push('invalid value for "date", date cannot be nil.')
       end
 
-      if @destination_account_id.nil?
-        invalid_properties.push('invalid value for "destination_account_id", destination_account_id cannot be nil.')
-      end
-
-      if @gl_account_id.nil?
-        invalid_properties.push('invalid value for "gl_account_id", gl_account_id cannot be nil.')
-      end
-
-      if @lease_id.nil?
-        invalid_properties.push('invalid value for "lease_id", lease_id cannot be nil.')
-      end
-
-      if @payee_payer.nil?
-        invalid_properties.push('invalid value for "payee_payer", payee_payer cannot be nil.')
-      end
-
-      if @to_be_printed.nil?
-        invalid_properties.push('invalid value for "to_be_printed", to_be_printed cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -221,11 +201,6 @@ module Propertyware
     def valid?
       return false if @amount.nil?
       return false if @date.nil?
-      return false if @destination_account_id.nil?
-      return false if @gl_account_id.nil?
-      return false if @lease_id.nil?
-      return false if @payee_payer.nil?
-      return false if @to_be_printed.nil?
       true
     end
 

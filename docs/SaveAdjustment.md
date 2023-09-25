@@ -7,8 +7,8 @@
 | **amount** | **Float** | Amount, should be negative. |  |
 | **comments** | **String** | Comments. | [optional] |
 | **date** | **Date** | Lease Adjustment date. | [optional] |
-| **lease_id** | **Integer** | Lease id. |  |
-| **ref_no** | **String** | Ref No. | [optional] |
+| **lease_id** | **Integer** | Id of the lease associated with the Adjustment. |  |
+| **ref_no** | **String** | Reference number. | [optional] |
 
 ## Example
 

@@ -6,13 +6,13 @@
 | ---- | ---- | ----------- | ----- |
 | **amount** | **Float** | Amount. |  |
 | **comments** | **String** | Comments. | [optional] |
-| **contact_id** | **Integer** | Payer contact ID. |  |
+| **contact_id** | **Integer** | Id of the contact associated with lease payment |  |
 | **date** | **Date** | Post Date. |  |
-| **deposit_date** | **Date** | Payment Deposit Date. |  |
-| **destination_account_id** | **Integer** | Bank Account ID to Deposit. |  |
-| **lease_id** | **Integer** | Lease ID to apply payment. |  |
-| **payment_type** | **String** | Payment Type. |  |
-| **ref_no** | **String** | Payment Ref No. |  |
+| **deposit_date** | **Date** | Payment deposit date. |  |
+| **destination_account_id** | **Integer** | Bank GL account ID to deposit. |  |
+| **lease_id** | **Integer** | Id of the lease associated with this payment. |  |
+| **payment_type** | **String** | Payment type. |  |
+| **ref_no** | **String** | Payment reference number |  |
 
 ## Example
 

@@ -215,10 +215,6 @@ module Propertyware
         invalid_properties.push('invalid value for "date", date cannot be nil.')
       end
 
-      if @gl_account_id.nil?
-        invalid_properties.push('invalid value for "gl_account_id", gl_account_id cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -227,7 +223,6 @@ module Propertyware
     def valid?
       return false if @amount.nil?
       return false if @date.nil?
-      return false if @gl_account_id.nil?
       payment_type_validator = EnumAttributeValidator.new('String', ["CHECK", "CHECK21", "CASHIERS_CHECK", "CREDIT_CARD", "CASH", "MONEY_ORDER", "OTHER", "CLICKPAY", "SECTION8", "EPAY", "ECHECK", "NACHA", "RENTMONEY", "PUBLIC_ASSISTANCE"])
       return false unless payment_type_validator.valid?(@payment_type)
       true

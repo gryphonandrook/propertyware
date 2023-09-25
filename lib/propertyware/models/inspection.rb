@@ -19,6 +19,9 @@ module Propertyware
     # Id of the building associated with this inspection.
     attr_accessor :building_id
 
+    # Date and time the inspection closed (customer time zone).
+    attr_accessor :closed_date_and_time
+
     # Inspection comments.
     attr_accessor :comment
 
@@ -37,11 +40,20 @@ module Propertyware
     # List of inspection areas.
     attr_accessor :inspection_areas
 
+    # Inspector ID
+    attr_accessor :inspector_id
+
     # User who last modified the record.
     attr_accessor :last_modified_by
 
     # Date and time the record was last modified. (Timezone: UTC)
     attr_accessor :last_modified_date_time
+
+    # Id of the lease associated with this inspection.
+    attr_accessor :lease_id
+
+    # Notes to Inspector
+    attr_accessor :notes_to_inspector
 
     # Inspection number.
     attr_accessor :number
@@ -65,14 +77,18 @@ module Propertyware
     def self.attribute_map
       {
         :'building_id' => :'buildingID',
+        :'closed_date_and_time' => :'closedDateAndTime',
         :'comment' => :'comment',
         :'created_by' => :'createdBy',
         :'created_date_time' => :'createdDateTime',
         :'id' => :'id',
         :'inspected_date_and_time' => :'inspectedDateAndTime',
         :'inspection_areas' => :'inspectionAreas',
+        :'inspector_id' => :'inspectorID',
         :'last_modified_by' => :'lastModifiedBy',
         :'last_modified_date_time' => :'lastModifiedDateTime',
+        :'lease_id' => :'leaseID',
+        :'notes_to_inspector' => :'notesToInspector',
         :'number' => :'number',
         :'portfolio_id' => :'portfolioID',
         :'scheduled_date_and_time' => :'scheduledDateAndTime',
@@ -91,14 +107,18 @@ module Propertyware
     def self.openapi_types
       {
         :'building_id' => :'Integer',
+        :'closed_date_and_time' => :'Time',
         :'comment' => :'String',
         :'created_by' => :'String',
         :'created_date_time' => :'Time',
         :'id' => :'Integer',
         :'inspected_date_and_time' => :'Time',
         :'inspection_areas' => :'Array<InspectionArea>',
+        :'inspector_id' => :'Integer',
         :'last_modified_by' => :'String',
         :'last_modified_date_time' => :'Time',
+        :'lease_id' => :'Integer',
+        :'notes_to_inspector' => :'String',
         :'number' => :'Integer',
         :'portfolio_id' => :'Integer',
         :'scheduled_date_and_time' => :'Time',
@@ -133,6 +153,10 @@ module Propertyware
         self.building_id = attributes[:'building_id']
       end
 
+      if attributes.key?(:'closed_date_and_time')
+        self.closed_date_and_time = attributes[:'closed_date_and_time']
+      end
+
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
       end
@@ -159,12 +183,24 @@ module Propertyware
         end
       end
 
+      if attributes.key?(:'inspector_id')
+        self.inspector_id = attributes[:'inspector_id']
+      end
+
       if attributes.key?(:'last_modified_by')
         self.last_modified_by = attributes[:'last_modified_by']
       end
 
       if attributes.key?(:'last_modified_date_time')
         self.last_modified_date_time = attributes[:'last_modified_date_time']
+      end
+
+      if attributes.key?(:'lease_id')
+        self.lease_id = attributes[:'lease_id']
+      end
+
+      if attributes.key?(:'notes_to_inspector')
+        self.notes_to_inspector = attributes[:'notes_to_inspector']
       end
 
       if attributes.key?(:'number')
@@ -211,14 +247,18 @@ module Propertyware
       return true if self.equal?(o)
       self.class == o.class &&
           building_id == o.building_id &&
+          closed_date_and_time == o.closed_date_and_time &&
           comment == o.comment &&
           created_by == o.created_by &&
           created_date_time == o.created_date_time &&
           id == o.id &&
           inspected_date_and_time == o.inspected_date_and_time &&
           inspection_areas == o.inspection_areas &&
+          inspector_id == o.inspector_id &&
           last_modified_by == o.last_modified_by &&
           last_modified_date_time == o.last_modified_date_time &&
+          lease_id == o.lease_id &&
+          notes_to_inspector == o.notes_to_inspector &&
           number == o.number &&
           portfolio_id == o.portfolio_id &&
           scheduled_date_and_time == o.scheduled_date_and_time &&
@@ -236,7 +276,7 @@ module Propertyware
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [building_id, comment, created_by, created_date_time, id, inspected_date_and_time, inspection_areas, last_modified_by, last_modified_date_time, number, portfolio_id, scheduled_date_and_time, status, template_name, type].hash
+      [building_id, closed_date_and_time, comment, created_by, created_date_time, id, inspected_date_and_time, inspection_areas, inspector_id, last_modified_by, last_modified_date_time, lease_id, notes_to_inspector, number, portfolio_id, scheduled_date_and_time, status, template_name, type].hash
     end
 
     # Builds the object from hash

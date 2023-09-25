@@ -7,7 +7,6 @@
 | **amount** | **Float** | Amount. |  |
 | **amount_due** | **Float** | The amount due for the charge. | [optional] |
 | **amount_paid** | **Float** | The amount paid for the charge. | [optional] |
-| **charge_status** | **String** | Status of the charge. | [optional] |
 | **comments** | **String** | Comments. | [optional] |
 | **created_by** | **String** | User who created the record. | [optional] |
 | **created_date_time** | **Time** | Date and time the record was created. (Timezone: UTC) | [optional] |
@@ -21,7 +20,6 @@
 | **payments** | [**Array&lt;PaymentCharge&gt;**](PaymentCharge.md) | List of payment charge history. | [optional] |
 | **portfolio_id** | **Integer** | Id of the portfolio associated with this charge. | [optional] |
 | **ref_no** | **String** | Reference number. | [optional] |
-| **status** | **String** | The status of the lease. | [optional] |
 
 ## Example
 
@@ -32,7 +30,6 @@ instance = Propertyware::ChargeTx.new(
   amount: null,
   amount_due: null,
   amount_paid: null,
-  charge_status: null,
   comments: null,
   created_by: null,
   created_date_time: null,
@@ -45,8 +42,7 @@ instance = Propertyware::ChargeTx.new(
   parent_tx_id: null,
   payments: null,
   portfolio_id: null,
-  ref_no: null,
-  status: null
+  ref_no: null
 )
 ```
 

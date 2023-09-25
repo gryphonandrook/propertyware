@@ -66,7 +66,7 @@ describe 'DocumentsApi' do
   # @option opts [Time] :last_modified_date_time_start Filters results to any item modified on or after the date time specified. 
   # @option opts [Time] :last_modified_date_time_end Filters results to any item modified on or prior to the date time specified. 
   # @option opts [String] :orderby Indicates the field(s) and direction to sort the results in the response.
-  # @option opts [Integer] :entity_id Filters results to documents associated with a specific entity id. entity ID is not required for â€œDESKTOPâ€  and â€œOTHERâ€ . Remaining entities need â€œentity IDâ€ .
+  # @option opts [Integer] :entity_id Filters results to documents associated with a specific entity id. entity ID is not required for DESKTOP and OTHER. Remaining entities need entity ID.
   # @return [Array<Document>]
   describe 'retrieve_all_documents test' do
     it 'should work' do
@@ -103,7 +103,7 @@ describe 'DocumentsApi' do
   # Upload a document (BETA)
   # &lt;p class&#x3D;\&quot;betaError\&quot;&gt;&lt;b&gt;Note: &lt;/b&gt;Write access is only available to customers who have opted in to our beta program. Please reach out to support if you&#39;d like to be included.&lt;/p&gt; Upload a document&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Required permission:&lt;/b&gt;&lt;br/&gt;&lt;span class&#x3D;\&quot;permissionBlock\&quot;&gt;DOCUMENTS&lt;/span&gt; - &lt;code&gt;Write&lt;/code&gt; 
   # @param entity_id Unique identifier of an entity document is attached to.
-  # @param entity_type Entity type Document is attached to (Bill, Building, Desktop, Inspection, Lease, Portfolio, Prospect, Unit, Vendor, Work Order, Tenant, Owner, Bank Deposit, Asset)
+  # @param entity_type Entity type Document is attached to (Asset, Bill, Bank Deposit, Building, Desktop, Lease, Owner, Portfolio, Prospect, Prospect Contact, Tenant, Unit, Vendor, Check, Credit, Service Agreement, Journal Entry, Work Order)
   # @param body 
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :publish_to_tenant_portal Indicates if the document is published to the tenant portal.

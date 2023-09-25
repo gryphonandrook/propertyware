@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module Propertyware
-  # Bank Deposit for Request
+  # Refund for Request
   class SaveRefund
     # Amount.
     attr_accessor :amount
@@ -25,22 +25,22 @@ module Propertyware
     # Post Date.
     attr_accessor :date
 
-    # Bank GL Account to pay from.
+    # Id of the bank account to send the refund from.
     attr_accessor :destination_account_id
 
-    # Refund GL Account.
+    # Id of the general ledger account associated with the refund.
     attr_accessor :gl_account_id
 
-    # Lease id to apply payment.
+    # Id of the lease associated with the refund.
     attr_accessor :lease_id
 
-    # Payment Ref No.
+    # Reference number.
     attr_accessor :ref_no
 
-    # Bank GL Account to pay from.
+    # Indicates if the check is to be printed.
     attr_accessor :to_be_printed
 
-    # Bank GL Account to pay from.
+    # Indicates if refund is for primary contact only
     attr_accessor :to_primary_tenant
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -160,14 +160,6 @@ module Propertyware
         invalid_properties.push('invalid value for "lease_id", lease_id cannot be nil.')
       end
 
-      if @to_be_printed.nil?
-        invalid_properties.push('invalid value for "to_be_printed", to_be_printed cannot be nil.')
-      end
-
-      if @to_primary_tenant.nil?
-        invalid_properties.push('invalid value for "to_primary_tenant", to_primary_tenant cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -179,8 +171,6 @@ module Propertyware
       return false if @destination_account_id.nil?
       return false if @gl_account_id.nil?
       return false if @lease_id.nil?
-      return false if @to_be_printed.nil?
-      return false if @to_primary_tenant.nil?
       true
     end
 
