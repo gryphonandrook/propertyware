@@ -56,7 +56,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  propertyware!
   pry-byebug
   rake (~> 13.0.1)
   rspec (~> 3.6, >= 3.6.0)
